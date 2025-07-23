@@ -41,7 +41,7 @@ export function Breadcrumb() {
       });
     } else {
       // Find parent item if it's a nested route
-      const _pathSegments = currentPath.split('/').filter(Boolean);
+      // const pathSegments = currentPath.split('/').filter(Boolean);
       
       // Find parent navigation item
       for (const navItem of navigationItems) {
