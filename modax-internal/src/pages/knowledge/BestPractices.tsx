@@ -1,13 +1,12 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { 
   PageLayout, 
   PageContainer, 
   PageHeader, 
   PageContent 
 } from '@/components/layout/PageLayout'
-import { H1, H2, H3, P, Lead, Muted, Large } from '@/components/ui/typography'
-import { CheckCircle2, Lightbulb, AlertTriangle, Target, Shield, Layers, Users, GitBranch, Zap } from 'lucide-react'
+import { H2, H3, P, Lead, Muted, Large } from '@/components/ui/typography'
 
 export default function BestPractices() {
   const bestPracticeCategories = [

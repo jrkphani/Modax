@@ -1,6 +1,5 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress-enhanced';
 import { Button } from '@/components/ui/button';
@@ -19,7 +18,23 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const weeklyPlan = [
+interface Activity {
+  time: string;
+  task: string;
+  type: string;
+}
+
+interface WeekPlan {
+  week: string;
+  phase: string;
+  status: string;
+  progress: number;
+  objectives: string[];
+  deliverables: { name: string; status: string }[];
+  activities: Record<string, Activity[] | string[]>;
+}
+
+const weeklyPlan: WeekPlan[] = [
   {
     week: 'Week 1-2',
     phase: 'Discovery & Assessment',
@@ -192,7 +207,7 @@ export default function WeekByWeek() {
               key={index}
               variant={selectedWeek === index ? 'default' : 'outline'}
               className={selectedWeek === index ? 'bg-purple-600 hover:bg-purple-700' : ''}
-              onClick={() => setSelectedWeek(index)}
+              onClick={() => { setSelectedWeek(index); }}
             >
               <Calendar className="h-4 w-4 mr-2" />
               {week.week}
@@ -300,27 +315,29 @@ export default function WeekByWeek() {
                     </TabsList>
                     {Object.entries(currentWeek.activities).map(([day, activities]) => (
                       <TabsContent key={day} value={day} className="mt-4 space-y-3">
-                        {activities.map((activity, index) => (
-                          <div key={index} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <div className="flex-shrink-0">
-                              <div className={`w-2 h-2 mt-2 rounded-full ${
-                                activity.type === 'meeting' ? 'bg-blue-500' :
-                                activity.type === 'workshop' ? 'bg-primary/50' :
-                                activity.type === 'presentation' ? 'bg-success/50' :
-                                'bg-gray-500'
-                              }`} />
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center justify-between">
-                                <span className="text-sm font-medium text-gray-900">{activity.time}</span>
-                                <Badge variant="outline" className="text-xs">
-                                  {activity.type}
-                                </Badge>
+                        {Array.isArray(activities) && activities.length > 0 && typeof activities[0] === 'object' && 'time' in activities[0] ? (
+                          (activities as Activity[]).map((activity, index) => (
+                            <div key={index} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                              <div className="flex-shrink-0">
+                                <div className={`w-2 h-2 mt-2 rounded-full ${
+                                  activity.type === 'meeting' ? 'bg-blue-500' :
+                                  activity.type === 'workshop' ? 'bg-primary/50' :
+                                  activity.type === 'presentation' ? 'bg-success/50' :
+                                  'bg-gray-500'
+                                }`} />
                               </div>
-                              <p className="text-sm text-gray-600 mt-1">{activity.task}</p>
+                              <div className="flex-1">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-sm font-medium text-gray-900">{activity.time}</span>
+                                  <Badge variant="outline" className="text-xs">
+                                    {activity.type}
+                                  </Badge>
+                                </div>
+                                <p className="text-sm text-gray-600 mt-1">{activity.task}</p>
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))
+                        ) : null}
                       </TabsContent>
                     ))}
                   </Tabs>
@@ -472,14 +489,14 @@ export default function WeekByWeek() {
         <div className="flex justify-between pt-6 border-t">
           <Button 
             variant="outline" 
-            onClick={() => setSelectedWeek(Math.max(0, selectedWeek - 1))}
+            onClick={() => { setSelectedWeek(Math.max(0, selectedWeek - 1)); }}
             disabled={selectedWeek === 0}
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Previous Week
           </Button>
           <Button 
-            onClick={() => setSelectedWeek(Math.min(weeklyPlan.length - 1, selectedWeek + 1))}
+            onClick={() => { setSelectedWeek(Math.min(weeklyPlan.length - 1, selectedWeek + 1)); }}
             disabled={selectedWeek === weeklyPlan.length - 1}
             className="bg-purple-600 hover:bg-purple-700"
           >

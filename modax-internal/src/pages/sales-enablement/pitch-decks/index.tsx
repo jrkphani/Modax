@@ -1,3 +1,4 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
 import { 
   PageLayout, 
@@ -5,7 +6,6 @@ import {
   PageHeader, 
   PageContent 
 } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { 
@@ -19,11 +19,9 @@ import {
   Cpu,
   Play,
   Edit,
-  Share2,
   BookOpen,
   Building
 } from 'lucide-react'
-import { Link } from 'react-router-dom'
 
 export default function PitchDecksIndex() {
   const [selectedDeck, setSelectedDeck] = useState<string | null>(null)
@@ -204,7 +202,7 @@ export default function PitchDecksIndex() {
                   className={`border-gray-200 hover:shadow-lg transition-all cursor-pointer ${
                     selectedDeck === deck.id ? 'ring-2 ring-purple-500' : ''
                   }`}
-                  onClick={() => setSelectedDeck(deck.id)}
+                  onClick={() => { setSelectedDeck(deck.id); }}
                 >
                   <CardHeader>
                     <div className="flex items-start justify-between">

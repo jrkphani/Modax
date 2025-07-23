@@ -55,8 +55,8 @@ export function QuickAccess() {
   ]
 
   const handleToolClick = (tool: QuickTool) => {
-    if (tool.path) {
-      navigate(tool.path)
+    if (tool.path !== undefined) {
+      void navigate(tool.path)
     } else if (tool.action) {
       tool.action()
     }
@@ -66,7 +66,7 @@ export function QuickAccess() {
     return (
       <div className="fixed bottom-4 right-4 z-40">
         <Button
-          onClick={() => setIsHidden(false)}
+          onClick={() => { setIsHidden(false) }}
           className="bg-purple-600 hover:bg-purple-700 text-white shadow-lg"
           size="icon"
         >
@@ -94,7 +94,7 @@ export function QuickAccess() {
               variant="ghost"
               size="icon"
               className="h-6 w-6"
-              onClick={() => setIsExpanded(!isExpanded)}
+              onClick={() => { setIsExpanded(!isExpanded) }}
             >
               {isExpanded ? (
                 <ChevronDown className="h-3 w-3" />
@@ -106,7 +106,7 @@ export function QuickAccess() {
               variant="ghost"
               size="icon"
               className="h-6 w-6"
-              onClick={() => setIsHidden(true)}
+              onClick={() => { setIsHidden(true) }}
             >
               <X className="h-3 w-3" />
             </Button>
@@ -123,7 +123,7 @@ export function QuickAccess() {
                   key={tool.id}
                   variant="ghost"
                   className="w-full justify-start p-3 h-auto hover:bg-gray-50 group"
-                  onClick={() => handleToolClick(tool)}
+                  onClick={() => { handleToolClick(tool) }}
                 >
                   <div className="flex items-center gap-3 w-full">
                     <div className={`p-2 rounded-lg ${tool.color} group-hover:scale-110 transition-transform`}>
@@ -165,7 +165,7 @@ export function QuickAccess() {
                     tool.id === 'aws-funding' ? 'hover:bg-blue-50' :
                     'hover:bg-primary/5'
                   }`}
-                  onClick={() => handleToolClick(tool)}
+                  onClick={() => { handleToolClick(tool) }}
                   title={tool.title}
                 >
                   <Icon className={`h-5 w-5 ${

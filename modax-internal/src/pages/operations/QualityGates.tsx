@@ -1,13 +1,12 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { 
   PageLayout, 
   PageContainer, 
   PageHeader, 
   PageContent 
 } from '@/components/layout/PageLayout'
-import { H1, H2, H3, P, Lead, Muted, Large } from '@/components/ui/typography'
-import { CheckCircle2, AlertCircle, XCircle, ArrowRight, Shield, Activity, Target, TrendingUp } from 'lucide-react'
+import { H2, H3, P, Lead, Muted, Large } from '@/components/ui/typography'
 
 export default function QualityGates() {
   const qualityStages = [
@@ -113,7 +112,7 @@ export default function QualityGates() {
       return 'pending'
     } else if (current.includes('%')) {
       const currentVal = parseFloat(current)
-      const thresholdVal = parseFloat(threshold.match(/\d+/)?.[0] || '0')
+      const thresholdVal = parseFloat((/\d+/.exec(threshold))?.[0] || '0')
       return currentVal >= thresholdVal ? 'pass' : 'fail'
     }
     return 'pending'

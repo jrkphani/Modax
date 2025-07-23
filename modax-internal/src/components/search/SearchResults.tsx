@@ -1,18 +1,15 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { 
   FileText, 
   Layers, 
-  Users, 
   Zap,
   ChevronRight,
   Search
 } from 'lucide-react'
-import { searchItems } from '@/config/search-config'
-import type { SearchableItem, QuickAction } from '@/config/search-config'
+import { searchItems, type SearchableItem, type QuickAction } from '@/config/search-config'
 
 interface SearchResultsProps {
   query: string
@@ -33,13 +30,11 @@ export function SearchResults({ query, onSelectResult, quickActions = [] }: Sear
   }, [query])
 
   // Group results by category
-  const groupedResults = results.reduce((acc, result) => {
-    if (!acc[result.category]) {
-      acc[result.category] = []
-    }
+  const groupedResults = results.reduce<Record<string, SearchableItem[]>>((acc, result) => {
+    acc[result.category] ??= []
     acc[result.category].push(result)
     return acc
-  }, {} as Record<string, SearchableItem[]>)
+  }, {})
 
   // Filter quick actions based on query
   const filteredQuickActions = query 
@@ -68,22 +63,20 @@ export function SearchResults({ query, onSelectResult, quickActions = [] }: Sear
     }
 
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [selectedIndex, totalResults])
+    return () => { window.removeEventListener('keydown', handleKeyDown); }
+  }, [selectedIndex, totalResults, handleSelectByIndex])
 
   const handleSelectByIndex = useCallback((index: number) => {
     if (index < filteredQuickActions.length) {
       const action = filteredQuickActions[index]
-      if (action.action) {
-        action.action()
-      }
+      action.action()
       onSelectResult(action)
     } else {
       const resultIndex = index - filteredQuickActions.length
       const result = results[resultIndex]
       if (result) {
-        if (result.path) {
-          navigate(result.path)
+        if (result.path !== undefined) {
+          void navigate(result.path)
         }
         onSelectResult(result)
       }
@@ -157,7 +150,7 @@ export function SearchResults({ query, onSelectResult, quickActions = [] }: Sear
                         {action.description}
                       </p>
                     </div>
-                    {action.shortcut && (
+                    {action.shortcut !== undefined && (
                       <kbd className="ml-auto text-xs bg-gray-100 px-1.5 py-0.5 rounded text-gray-600">
                         {action.shortcut}
                       </kbd>
@@ -222,7 +215,7 @@ export function SearchResults({ query, onSelectResult, quickActions = [] }: Sear
                         {action.description}
                       </p>
                     </div>
-                    {action.shortcut && (
+                    {action.shortcut !== undefined && (
                       <kbd className="ml-auto text-xs bg-gray-100 px-1.5 py-0.5 rounded text-gray-600">
                         {action.shortcut}
                       </kbd>
@@ -242,7 +235,7 @@ export function SearchResults({ query, onSelectResult, quickActions = [] }: Sear
             </h3>
             <div className="space-y-1">
               {categoryResults.map((result) => {
-                const Icon = result.icon || getCategoryIcon(result.category)
+                const Icon = result.icon ?? getCategoryIcon(result.category)
                 const isSelected = selectedIndex === currentIndex
                 currentIndex++
                 
@@ -265,8 +258,8 @@ export function SearchResults({ query, onSelectResult, quickActions = [] }: Sear
                   <Button
                     key={result.id}
                     onClick={() => {
-                      if (result.path) {
-                        navigate(result.path)
+                      if (result.path !== undefined) {
+                        void navigate(result.path)
                       }
                       onSelectResult(result)
                     }}

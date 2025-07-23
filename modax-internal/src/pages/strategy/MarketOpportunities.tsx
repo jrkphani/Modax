@@ -1,4 +1,3 @@
-import React from 'react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { 
   PageLayout, 
@@ -6,7 +5,7 @@ import {
   PageHeader, 
   PageContent 
 } from '@/components/layout/PageLayout'
-import { H1, H2, H3, P, Lead } from '@/components/ui/typography'
+import { H2, H3, P, Lead } from '@/components/ui/typography'
 
 export default function MarketOpportunities() {
   const opportunities = [

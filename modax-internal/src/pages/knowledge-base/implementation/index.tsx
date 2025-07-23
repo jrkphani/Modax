@@ -1,5 +1,5 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -12,7 +12,6 @@ import {
 } from '@/components/layout/PageLayout'
 import { 
   Search, 
-  CheckCircle2, 
   Circle,
   PlayCircle,
   BookOpen,
@@ -213,7 +212,7 @@ export default function ImplementationGuides() {
                 type="text"
                 placeholder="Search guides, best practices, issues..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => { setSearchQuery(e.target.value); }}
                 className="pl-12 pr-4 h-12 text-base"
               />
             </div>
@@ -224,7 +223,7 @@ export default function ImplementationGuides() {
                   key={category}
                   variant={selectedCategory === category ? 'default' : 'outline'}
                   size="sm"
-                  onClick={() => setSelectedCategory(category)}
+                  onClick={() => { setSelectedCategory(category); }}
                   className={selectedCategory === category ? 'bg-purple-600 hover:bg-purple-700' : ''}
                 >
                   {category}

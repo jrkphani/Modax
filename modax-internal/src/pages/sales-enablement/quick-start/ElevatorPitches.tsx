@@ -1,3 +1,4 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
 import { 
   PageLayout, 
@@ -5,12 +6,9 @@ import {
   PageHeader, 
   PageContent 
 } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { 
-  Zap,
   Clock,
   Target,
   Copy,
@@ -26,9 +24,9 @@ export default function ElevatorPitches() {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
 
   const handleCopy = (text: string, index: number) => {
-    navigator.clipboard.writeText(text)
+    void navigator.clipboard.writeText(text)
     setCopiedIndex(index)
-    setTimeout(() => setCopiedIndex(null), 2000)
+    setTimeout(() => { setCopiedIndex(null); }, 2000)
   }
 
   const pitches = {
@@ -204,7 +202,7 @@ We've proven this approach with 50+ Fortune 500 companies. Names you'd recognize
                         size="sm"
                         variant="ghost"
                         className="absolute top-2 right-2"
-                        onClick={() => handleCopy(pitch.pitch, index)}
+                        onClick={() => { handleCopy(pitch.pitch, index); }}
                       >
                         {copiedIndex === index ? (
                           <CheckCircle className="h-4 w-4 text-success" />
@@ -251,7 +249,7 @@ We've proven this approach with 50+ Fortune 500 companies. Names you'd recognize
                         size="sm"
                         variant="ghost"
                         className="absolute top-2 right-2"
-                        onClick={() => handleCopy(pitch.pitch, index + 10)}
+                        onClick={() => { handleCopy(pitch.pitch, index + 10); }}
                       >
                         {copiedIndex === index + 10 ? (
                           <CheckCircle className="h-4 w-4 text-success" />
@@ -298,7 +296,7 @@ We've proven this approach with 50+ Fortune 500 companies. Names you'd recognize
                         size="sm"
                         variant="ghost"
                         className="absolute top-2 right-2"
-                        onClick={() => handleCopy(pitch.pitch, index + 20)}
+                        onClick={() => { handleCopy(pitch.pitch, index + 20); }}
                       >
                         {copiedIndex === index + 20 ? (
                           <CheckCircle className="h-4 w-4 text-success" />

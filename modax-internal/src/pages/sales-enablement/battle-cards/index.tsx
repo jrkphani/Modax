@@ -1,3 +1,4 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
 import { 
   PageLayout, 
@@ -5,13 +6,11 @@ import {
   PageHeader, 
   PageContent 
 } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { 
-  Shield,
   Search,
   Building,
   Cloud,
@@ -177,7 +176,7 @@ export default function BattleCardsIndex() {
               type="text"
               placeholder="Search competitors..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => { setSearchQuery(e.target.value); }}
               className="pl-10"
             />
           </div>

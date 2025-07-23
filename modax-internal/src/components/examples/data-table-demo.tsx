@@ -1,6 +1,6 @@
 import * as React from "react"
-import { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown, MoreHorizontal } from "lucide-react"
+import type { ColumnDef } from "@tanstack/react-table"
+import { MoreHorizontal } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -18,7 +18,7 @@ import { DataTableColumnHeader } from "@/components/ui/data-table-column-header"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
-export type Payment = {
+export interface Payment {
   id: string
   amount: number
   status: "pending" | "processing" | "success" | "failed"
@@ -33,16 +33,16 @@ export const columns: ColumnDef<Payment>[] = [
       <Checkbox
         checked={
           table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
+          (table.getIsSomePageRowsSelected() ? "indeterminate" : false)
         }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        onCheckedChange={(value) => { table.toggleAllPageRowsSelected(Boolean(value)) }}
         aria-label="Select all"
       />
     ),
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        onCheckedChange={(value) => { row.toggleSelected(Boolean(value)) }}
         aria-label="Select row"
       />
     ),
@@ -53,7 +53,7 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "status",
     header: "Status",
     cell: ({ row }) => {
-      const status = row.getValue("status") as string
+      const status = row.getValue("status")
       return (
         <Badge
           variant={
@@ -97,10 +97,10 @@ export const columns: ColumnDef<Payment>[] = [
       <DataTableColumnHeader column={column} title="Created" />
     ),
     cell: ({ row }) => {
-      const date = row.getValue("createdAt") as Date
+      const date = row.getValue("createdAt")
       return (
         <div className="text-muted-foreground">
-          {date.toLocaleDateString()}
+          {(date).toLocaleDateString()}
         </div>
       )
     },
@@ -122,7 +122,7 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+              onClick={() => { void navigator.clipboard.writeText(payment.id) }}
             >
               Copy payment ID
             </DropdownMenuItem>
@@ -145,7 +145,7 @@ function generatePayments(count: number): Payment[] {
     id: `PAY-${(i + 1).toString().padStart(4, "0")}`,
     amount: Math.floor(Math.random() * 10000) / 100,
     status: statuses[Math.floor(Math.random() * statuses.length)],
-    email: `user${i + 1}@${domains[Math.floor(Math.random() * domains.length)]}`,
+    email: `user${String(i + 1)}@${domains[Math.floor(Math.random() * domains.length)] ?? 'example.com'}`,
     createdAt: new Date(Date.now() - Math.floor(Math.random() * 10000000000)),
   }))
 }
@@ -160,3 +160,5 @@ export function DataTableDemo() {
     </div>
   )
 }
+// Import constants from separate file  
+import { statuses } from './data-table-constants'

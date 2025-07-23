@@ -1,8 +1,7 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { 
   PageContainer, 
@@ -156,7 +155,7 @@ export default function KnowledgeBaseIndex() {
       category.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       category.description.toLowerCase().includes(searchQuery.toLowerCase())
     )
-  }, [searchQuery, categories])
+  }, [searchQuery])
 
   // Filter articles based on search
   const filteredRecentArticles = useMemo(() => {
@@ -166,7 +165,7 @@ export default function KnowledgeBaseIndex() {
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       article.category.toLowerCase().includes(searchQuery.toLowerCase())
     )
-  }, [searchQuery, recentArticles])
+  }, [searchQuery])
 
   return (
     <PageContainer className="py-6">
@@ -184,7 +183,7 @@ export default function KnowledgeBaseIndex() {
                 type="text"
                 placeholder="Search documentation, guides, FAQs..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => { setSearchQuery(e.target.value); }}
                 className="pl-12 pr-4 h-12 text-base"
               />
             </div>

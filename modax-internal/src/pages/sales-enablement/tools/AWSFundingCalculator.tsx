@@ -1,3 +1,4 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
 import { 
   PageLayout, 
@@ -5,7 +6,6 @@ import {
   PageHeader, 
   PageContent 
 } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -151,7 +151,7 @@ export default function AWSFundingCalculator() {
                   <Label htmlFor="workloadType">Workload Type</Label>
                   <Select
                     value={formData.workloadType}
-                    onValueChange={(value) => handleInputChange('workloadType', value)}
+                    onValueChange={(value) => { handleInputChange('workloadType', value); }}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select workload type" />
@@ -179,7 +179,7 @@ export default function AWSFundingCalculator() {
                     type="number"
                     placeholder="e.g., 500000"
                     value={formData.migrationSize || ''}
-                    onChange={(e) => handleInputChange('migrationSize', e.target.value)}
+                    onChange={(e) => { handleInputChange('migrationSize', e.target.value); }}
                   />
                   <p className="text-xs text-gray-500">
                     Total cost of the migration project
@@ -193,7 +193,7 @@ export default function AWSFundingCalculator() {
                     type="number"
                     placeholder="e.g., 6"
                     value={formData.timelineMonths || ''}
-                    onChange={(e) => handleInputChange('timelineMonths', e.target.value)}
+                    onChange={(e) => { handleInputChange('timelineMonths', e.target.value); }}
                   />
                   <p className="text-xs text-gray-500">
                     Faster migrations qualify for speed bonuses
@@ -207,7 +207,7 @@ export default function AWSFundingCalculator() {
                     type="number"
                     placeholder="e.g., 50000"
                     value={formData.currentSpend || ''}
-                    onChange={(e) => handleInputChange('currentSpend', e.target.value)}
+                    onChange={(e) => { handleInputChange('currentSpend', e.target.value); }}
                   />
                   <p className="text-xs text-gray-500">
                     Monthly spend on current infrastructure
@@ -221,7 +221,7 @@ export default function AWSFundingCalculator() {
                     type="number"
                     placeholder="e.g., 10000"
                     value={formData.currentAWSSpend || ''}
-                    onChange={(e) => handleInputChange('currentAWSSpend', e.target.value)}
+                    onChange={(e) => { handleInputChange('currentAWSSpend', e.target.value); }}
                   />
                   <p className="text-xs text-gray-500">
                     Existing AWS spend (if any)
@@ -232,7 +232,7 @@ export default function AWSFundingCalculator() {
                   <Label htmlFor="partnerLevel">ModAx Partner Tier</Label>
                   <Select
                     value={formData.partnerLevel}
-                    onValueChange={(value) => handleInputChange('partnerLevel', value)}
+                    onValueChange={(value) => { handleInputChange('partnerLevel', value); }}
                   >
                     <SelectTrigger>
                       <SelectValue />

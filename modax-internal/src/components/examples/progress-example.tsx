@@ -1,7 +1,6 @@
-import React from 'react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from '@/components/ui/progress'
 import { ProgressEnhanced } from '@/components/ui/progress-enhanced'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export function ProgressExample() {
   return (

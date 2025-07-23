@@ -1,9 +1,9 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
 import { 
   PageContainer, 
   PageHeader 
 } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
@@ -14,11 +14,9 @@ import {
   ArrowRight,
   Rocket,
   Target,
-  DollarSign,
   Search,
   Clock,
   TrendingUp,
-  Users,
   Download,
   Play,
   BookOpen,
@@ -186,7 +184,7 @@ export default function SalesEnablementIndex() {
               type="text"
               placeholder="Search sales resources..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => { setSearchQuery(e.target.value); }}
               className="pl-10"
             />
           </div>

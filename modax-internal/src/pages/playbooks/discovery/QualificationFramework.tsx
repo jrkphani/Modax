@@ -1,5 +1,5 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -14,8 +14,6 @@ import {
   AlertCircle,
   TrendingUp,
   Users,
-  DollarSign,
-  Clock,
   Shield,
   Zap,
   Download
@@ -307,7 +305,7 @@ export default function QualificationFramework() {
                       <Label className="text-base font-medium">{criterion.question}</Label>
                       <RadioGroup
                         value={scores[`${category.category}-${criterionIndex}`] || ''}
-                        onValueChange={(value) => handleScoreChange(category.category, criterionIndex, value)}
+                        onValueChange={(value) => { handleScoreChange(category.category, criterionIndex, value); }}
                       >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           {criterion.options.map((option, optionIndex) => (
@@ -340,7 +338,7 @@ export default function QualificationFramework() {
         <div className="flex gap-4">
           <Button 
             className="flex-1 bg-purple-600 hover:bg-purple-700"
-            onClick={() => setShowResults(true)}
+            onClick={() => { setShowResults(true); }}
             disabled={Object.keys(scores).length === 0}
           >
             Calculate Qualification Score

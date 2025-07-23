@@ -1,7 +1,7 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from 'react'
 import { H1, H2, H3, P, Lead, Muted } from '@/components/ui/typography'
 import { Input } from '@/components/ui/input'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Search, FileText, Book, GraduationCap, ExternalLink } from 'lucide-react'
 
@@ -80,7 +80,7 @@ const Documentation = () => {
             type="search"
             placeholder="Search documentation..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => { setSearchQuery(e.target.value); }}
             className="pl-10"
           />
         </div>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { 
   PageLayout, 
   PageContainer, 
@@ -123,13 +122,10 @@ export default function PitchDecks() {
   return (
     <PageLayout>
       <PageContainer>
-        <PageHeader>
-          <H1>Pitch Decks</H1>
-          <Lead className="mt-4">
-            Presentation materials tailored for different audiences and use cases. 
-            Each deck is designed to communicate ModAx's value proposition clearly and effectively.
-          </Lead>
-        </PageHeader>
+        <PageHeader
+          title="Pitch Decks"
+          description="Presentation materials tailored for different audiences and use cases. Each deck is designed to communicate ModAx's value proposition clearly and effectively."
+        />
 
         <PageContent className="space-y-12">
           {/* Quick Start */}

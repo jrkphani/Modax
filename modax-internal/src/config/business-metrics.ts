@@ -166,16 +166,16 @@ export const businessMetrics = {
 // Helper functions
 export const getFormattedRevenue = (value: number): string => {
   if (value >= 1) {
-    return `$${value}M`;
+    return `$${String(value)}M`;
   }
-  return `$${Math.round(value * 1000)}K`;
+  return `$${String(Math.round(value * 1000))}K`;
 };
 
 export const getFormattedDealSize = (value: number): string => {
   if (value >= 1000000) {
-    return `$${value / 1000000}M`;
+    return `$${String(value / 1000000)}M`;
   }
-  return `$${value / 1000}K`;
+  return `$${String(value / 1000)}K`;
 };
 
 export const calculateTotalTAM = (): number => {

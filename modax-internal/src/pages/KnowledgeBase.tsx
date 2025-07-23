@@ -1,11 +1,11 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { 
   PageContainer, 
   PageHeader 
 } from '@/components/layout/PageLayout'
-import { FileText, Download, Book, CheckCircle, Users, Settings, BarChart3, ArrowRight } from 'lucide-react'
+import { Book, Users, CheckCircle, BarChart3, FileText, Settings, ArrowRight, Download } from 'lucide-react'
 
 export default function KnowledgeBase() {
   const documentation = [

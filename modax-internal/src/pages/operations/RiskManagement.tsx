@@ -1,7 +1,6 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { H1, H2, H3, P, Lead, Muted, Small } from '@/components/ui/typography'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { H1, H2, H3, P, Muted, Small } from '@/components/ui/typography'
 import { PageLayout } from '@/components/layout/PageLayout'
-import { AlertTriangle, Shield, TrendingUp, Activity, Target, CheckCircle2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface RiskItem {
@@ -175,7 +174,7 @@ export default function RiskManagement() {
                                     level.color
                                   )}
                                 >
-                                  {score}
+                                  {String(score)}
                                 </div>
                               )
                             })}
@@ -243,7 +242,7 @@ export default function RiskManagement() {
                             "px-2 py-0.5 rounded-full text-xs font-medium",
                             level.color
                           )}>
-                            {level.label} Risk (Score: {score})
+                            {level.label} Risk (Score: {String(score)})
                           </span>
                           <span className="flex items-center gap-1 text-xs text-muted-foreground">
                             {getStatusIcon(risk.status)}

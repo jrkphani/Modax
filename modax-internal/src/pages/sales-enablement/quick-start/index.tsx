@@ -10,7 +10,6 @@ import {
   MessageSquare, 
   Clock, 
   Users, 
-  DollarSign,
   ArrowRight,
   Copy,
   CheckCircle,

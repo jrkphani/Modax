@@ -1,8 +1,8 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageContainer, PageHeader, PageContent } from '@/components/layout/PageLayout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Target, Lightbulb, TrendingUp, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Target, Lightbulb, TrendingUp, Users, ArrowRight } from 'lucide-react';
 
 export default function StrategyOverview() {
   const navigate = useNavigate();

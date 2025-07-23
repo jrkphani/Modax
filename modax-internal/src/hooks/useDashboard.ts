@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { DashboardMetrics } from '@/types';
-import { mockApi, simulateApiDelay } from '@/lib/mock-data';
+import { mockApi } from '@/lib/mock-data';
 import { DEFAULT_VALUES } from '@/lib/constants';
 
 interface UseDashboardReturn {
@@ -79,16 +79,16 @@ export function useDashboard(): UseDashboardReturn {
 
   // Initial fetch
   useEffect(() => {
-    fetchDashboardMetrics();
+    void fetchDashboardMetrics();
   }, [fetchDashboardMetrics]);
 
   // Auto-refresh every 5 minutes
   useEffect(() => {
     const interval = setInterval(() => {
-      fetchDashboardMetrics();
+      void fetchDashboardMetrics();
     }, DEFAULT_VALUES.CACHE_TIME);
 
-    return () => clearInterval(interval);
+    return () => { clearInterval(interval); };
   }, [fetchDashboardMetrics]);
 
   return {

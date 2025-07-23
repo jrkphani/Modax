@@ -20,7 +20,7 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
       setIsChecking(false);
     };
     
-    checkAuth();
+    void checkAuth();
   }, []);
 
   if (isChecking) {

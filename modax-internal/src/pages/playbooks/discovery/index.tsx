@@ -1,5 +1,5 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import PageLayout from '@/components/layout/PageLayout';
@@ -17,7 +17,6 @@ import {
   XCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Progress } from '@/components/ui/progress-enhanced';
 
 const discoveryPhases = [
   {

@@ -6,7 +6,7 @@ export default function SalesEnablement() {
   
   useEffect(() => {
     // Redirect to the new sales enablement index
-    navigate('/sales-enablement', { replace: true })
+    void navigate('/sales-enablement', { replace: true })
   }, [navigate])
   
   return null

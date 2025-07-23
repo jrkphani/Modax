@@ -1,7 +1,6 @@
-import React from 'react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, PageContainer, PageHeader, PageContent } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
@@ -230,9 +229,9 @@ export default function MarketOpportunity() {
                         <div key={itemIdx}>
                           <div className="flex items-center justify-between text-sm mb-1">
                             <span className="text-gray-600">
-                              {item.region || item.sector || item.process}
+                              {'region' in item ? item.region : 'sector' in item ? item.sector : item.process}
                             </span>
-                            <span className="font-medium">${item.value}B</span>
+                            <span className="font-medium">${String(item.value)}B</span>
                           </div>
                           <Progress 
                             value={(item.value / parseFloat(segment.total.replace('$', '').replace('B', ''))) * 100} 

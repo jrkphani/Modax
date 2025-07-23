@@ -23,7 +23,7 @@ export default function Login() {
 
     try {
       await login(email, password)
-      navigate('/strategy')
+      void navigate('/strategy')
     } catch (err) {
       setError('Invalid email or password')
     } finally {
@@ -52,7 +52,7 @@ export default function Login() {
           </div>
 
           {/* Login Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={(e) => { void handleSubmit(e); }} className="space-y-6">
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-gray-300">Email</Label>
@@ -63,7 +63,7 @@ export default function Login() {
                     type="email"
                     placeholder="name@example.com"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => { setEmail(e.target.value); }}
                     required
                     className="pl-10 bg-gray-900/50 border-gray-800 text-white placeholder:text-gray-500 focus:border-primary focus:ring-primary"
                   />
@@ -87,7 +87,7 @@ export default function Login() {
                     type="password"
                     placeholder="••••••••"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => { setPassword(e.target.value); }}
                     required
                     className="pl-10 bg-gray-900/50 border-gray-800 text-white placeholder:text-gray-500 focus:border-primary focus:ring-primary"
                   />
@@ -99,7 +99,7 @@ export default function Login() {
               <Checkbox 
                 id="remember" 
                 checked={rememberMe}
-                onCheckedChange={(checked) => setRememberMe(checked as boolean)}
+                onCheckedChange={(checked) => { setRememberMe(checked as boolean); }}
                 className="border-gray-700 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
               />
               <Label 

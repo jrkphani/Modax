@@ -1,5 +1,5 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress-enhanced';
@@ -203,7 +203,7 @@ const prerequisiteCategories = [
 
 export default function Prerequisites() {
   const [selectedCategory, setSelectedCategory] = useState(0);
-  const [checkedItems, setCheckedItems] = useState(new Set());
+  const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set());
 
   const totalItems = prerequisiteCategories.reduce((acc, cat) => acc + cat.items.length, 0);
   const completedItems = prerequisiteCategories.reduce((acc, cat) => 
@@ -211,7 +211,7 @@ export default function Prerequisites() {
   );
   const overallProgress = Math.round((completedItems / totalItems) * 100);
 
-  const handleCheckItem = (categoryIndex, itemIndex) => {
+  const handleCheckItem = (categoryIndex: number, itemIndex: number) => {
     const key = `${categoryIndex}-${itemIndex}`;
     const newCheckedItems = new Set(checkedItems);
     if (newCheckedItems.has(key)) {
@@ -311,7 +311,7 @@ export default function Prerequisites() {
                 key={index}
                 variant={selectedCategory === index ? 'default' : 'outline'}
                 className={selectedCategory === index ? 'bg-purple-600 hover:bg-purple-700' : ''}
-                onClick={() => setSelectedCategory(index)}
+                onClick={() => { setSelectedCategory(index); }}
               >
                 <Icon className="h-4 w-4 mr-2" />
                 {category.category}
@@ -355,7 +355,7 @@ export default function Prerequisites() {
                       <div className="flex items-start space-x-3">
                         <Checkbox
                           checked={item.status === 'completed' || checkedItems.has(`${selectedCategory}-${index}`)}
-                          onCheckedChange={() => handleCheckItem(selectedCategory, index)}
+                          onCheckedChange={() => { handleCheckItem(selectedCategory, index); }}
                           disabled={item.status === 'completed'}
                         />
                         <div className="flex-1">

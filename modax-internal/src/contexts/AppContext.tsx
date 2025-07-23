@@ -1,7 +1,3 @@
-'use client';
-
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import type { ReactNode } from 'react';
 import type { User, AppSettings } from '@/types';
 import { STORAGE_KEYS, DEFAULT_VALUES } from '@/lib/constants';
 

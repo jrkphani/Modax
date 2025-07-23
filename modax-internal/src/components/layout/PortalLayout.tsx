@@ -18,7 +18,7 @@ export function PortalLayout({ children }: PortalLayoutProps) {
   const showSidebar = location.pathname !== '/' && location.pathname !== '/login'
 
   if (!showSidebar) {
-    return <>{children || <Outlet />}</>
+    return <>{children ?? <Outlet />}</>
   }
 
   return (
@@ -35,7 +35,7 @@ export function PortalLayout({ children }: PortalLayoutProps) {
                 {/* Page Content with Breadcrumb */}
                 <main className="flex-1 bg-gray-50 overflow-auto p-6">
                   <Breadcrumb />
-                  {children || <Outlet />}
+                  {children ?? <Outlet />}
                 </main>
               </div>
             </SidebarInset>

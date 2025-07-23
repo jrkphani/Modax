@@ -1,0 +1,478 @@
+
+> modax-internal@0.0.0 lint
+> eslint . --max-warnings=0
+
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/examples/data-table-advanced-demo.tsx
+   96:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  151:12  error    Unnecessary conditional, the types have no overlap                                                                              @typescript-eslint/no-unnecessary-condition
+  227:20  error    This assertion is unnecessary since it does not change the type of the expression                                               @typescript-eslint/no-unnecessary-type-assertion
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/examples/data-table-demo.tsx
+   29:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  103:12  error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+  164:10  error    'statuses' is defined but never used. Allowed unused vars must match /^_/u                                                      @typescript-eslint/no-unused-vars
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/aurora.tsx
+  157:38  error  Unsafe member access .value on an `any` value       @typescript-eslint/no-unsafe-member-access
+  191:11  error  Unnecessary conditional, the types have no overlap  @typescript-eslint/no-unnecessary-condition
+  192:32  error  Unsafe member access .value on an `any` value       @typescript-eslint/no-unsafe-member-access
+  193:37  error  Unsafe member access .value on an `any` value       @typescript-eslint/no-unsafe-member-access
+  194:33  error  Unsafe member access .value on an `any` value       @typescript-eslint/no-unsafe-member-access
+  196:38  error  Unsafe member access .value on an `any` value       @typescript-eslint/no-unsafe-member-access
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/calendar.tsx
+  184:9  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+  194:9  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/chart.tsx
+  128:23   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                                                                                                            @typescript-eslint/strict-boolean-expressions
+  128:42   error  Unsafe member access .length on an `error` typed value                                                                                                                                                @typescript-eslint/no-unsafe-member-access
+  132:11   error  Unsafe assignment of an error typed value                                                                                                                                                             @typescript-eslint/no-unsafe-assignment
+  133:20   error  'labelKey ?? (item as Record<string, unknown>)?.dataKey ?? (item as Record<string, unknown>)?.name ?? "value"' will use Object's default stringification format ('[object Object]') when stringified  @typescript-eslint/no-base-to-string
+  133:20   error  Invalid type "{}" of template literal expression                                                                                                                                                      @typescript-eslint/restrict-template-expressions
+  133:65   error  Unnecessary optional chain on a non-nullish value                                                                                                                                                     @typescript-eslint/no-unnecessary-condition
+  133:111  error  Unnecessary optional chain on a non-nullish value                                                                                                                                                     @typescript-eslint/no-unnecessary-condition
+  143:34   error  Unsafe argument of type error typed assigned to a parameter of type `readonly Payload<ValueType, NameType>[]`                                                                                         @typescript-eslint/no-unsafe-argument
+  163:8    error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly                                                                                                           @typescript-eslint/strict-boolean-expressions
+  163:19   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                                                                                                            @typescript-eslint/strict-boolean-expressions
+  163:38   error  Unsafe member access .length on an `error` typed value                                                                                                                                                @typescript-eslint/no-unsafe-member-access
+  167:29   error  Unsafe member access .length on an `error` typed value                                                                                                                                                @typescript-eslint/no-unsafe-member-access
+  178:10   error  Unsafe call of a(n) `error` type typed value                                                                                                                                                          @typescript-eslint/no-unsafe-call
+  178:18   error  Unsafe member access .map on an `error` typed value                                                                                                                                                   @typescript-eslint/no-unsafe-member-access
+  180:26   error  'nameKey ?? itemRecord.name ?? itemRecord.dataKey ?? "value"' will use Object's default stringification format ('[object Object]') when stringified                                                   @typescript-eslint/no-base-to-string
+  180:26   error  Invalid type "{}" of template literal expression                                                                                                                                                      @typescript-eslint/restrict-template-expressions
+  187:20   error  Unsafe assignment of an `any` value                                                                                                                                                                   @typescript-eslint/no-unsafe-assignment
+  187:25   error  Unsafe member access .dataKey on an `any` value                                                                                                                                                       @typescript-eslint/no-unsafe-member-access
+  194:91   error  Unsafe argument of type `any` assigned to a parameter of type `Payload<ValueType, NameType>`                                                                                                          @typescript-eslint/no-unsafe-argument
+  194:97   error  Unsafe argument of type `any` assigned to a parameter of type `number`                                                                                                                                @typescript-eslint/no-unsafe-argument
+  264:8    error  Unexpected any value in conditional. An explicit comparison or type conversion is required                                                                                                            @typescript-eslint/strict-boolean-expressions
+  276:8    error  Unsafe call of a(n) `error` type typed value                                                                                                                                                          @typescript-eslint/no-unsafe-call
+  278:24   error  'nameKey ?? itemRecord.dataKey ?? "value"' will use Object's default stringification format ('[object Object]') when stringified                                                                      @typescript-eslint/no-base-to-string
+  278:24   error  Invalid type "{}" of template literal expression                                                                                                                                                      @typescript-eslint/restrict-template-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/data-table-toolbar.tsx
+  33:10  error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly   @typescript-eslint/strict-boolean-expressions
+  36:21  error  Unnecessary conditional, expected left-hand side of `??` operator to be possibly null or undefined  @typescript-eslint/no-unnecessary-condition
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/data-table.tsx
+  103:38  error  Unnecessary optional chain on a non-nullish value  @typescript-eslint/no-unnecessary-condition
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/dropdown-menu.tsx
+   28:7  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+   85:7  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+  149:7  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/form.tsx
+   50:7  error    Unnecessary conditional, the types have no overlap                                                                              @typescript-eslint/no-unnecessary-condition
+  140:8  error    Unexpected value in conditional. A boolean expression is required                                                               @typescript-eslint/strict-boolean-expressions
+  157:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/loading-state.tsx
+  75:10  error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly  @typescript-eslint/strict-boolean-expressions
+  89:8   error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly  @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/navigation-menu.tsx
+  7:1  error  './navigation-menu-variants' import is duplicated  no-duplicate-imports
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/progress-enhanced.tsx
+  51:9   error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly          @typescript-eslint/strict-boolean-expressions
+  51:15  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+  53:12  error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly          @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/sidebar.tsx
+  723:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/star-border.tsx
+  28:14  error  Unsafe assignment of an `any` value  @typescript-eslint/no-unsafe-assignment
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/typography.tsx
+   44:18  error    Unexpected value in conditional. A boolean expression is required                                                               @typescript-eslint/strict-boolean-expressions
+   44:21  error    Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator                       @typescript-eslint/prefer-nullish-coalescing
+  156:22  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/config/design-tokens.ts
+  470:5  error  Unsafe assignment of an `any` value  @typescript-eslint/no-unsafe-assignment
+  475:5  error  Unsafe assignment of an `any` value  @typescript-eslint/no-unsafe-assignment
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/config/env.ts
+  4:9  error  Unsafe assignment of an `any` value  @typescript-eslint/no-unsafe-assignment
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/contexts/AppContext.tsx
+   37:7   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+   37:20  error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   39:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+   40:9   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+   40:19  error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   41:8   error    Unexpected any value in conditional. An explicit comparison or type conversion is required                                      @typescript-eslint/strict-boolean-expressions
+   44:3   error    Unsafe return of a value of type error                                                                                          @typescript-eslint/no-unsafe-return
+   52:9   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+   52:27  error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   53:9   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+   53:35  error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   54:9   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+   54:29  error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   55:9   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+   55:37  error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   58:3   error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   62:13  error    Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly                               @typescript-eslint/strict-boolean-expressions
+   63:11  error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   73:13  error    Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly                               @typescript-eslint/strict-boolean-expressions
+   74:11  error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   78:13  error    Unnecessary conditional, value is always truthy                                                                                 @typescript-eslint/no-unnecessary-condition
+   79:11  error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   88:5   error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   92:3   error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+   93:9   error    Unexpected any value in conditional. An explicit comparison or type conversion is required                                      @typescript-eslint/strict-boolean-expressions
+  101:3   error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+  106:3   error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+  107:46  error    Unsafe argument of type error typed assigned to a parameter of type `string`                                                    @typescript-eslint/no-unsafe-argument
+  119:5   error    Unsafe call of a(n) `error` type typed value                                                                                    @typescript-eslint/no-unsafe-call
+  119:26  error    Unsafe return of a value of type `any`                                                                                          @typescript-eslint/no-unsafe-return
+  123:5   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+  124:5   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+  125:24  error    Unexpected any value in conditional. An explicit comparison or type conversion is required                                      @typescript-eslint/strict-boolean-expressions
+  126:5   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+  128:5   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+  129:5   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+  130:5   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+  131:5   error    Unsafe assignment of an error typed value                                                                                       @typescript-eslint/no-unsafe-assignment
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/contexts/AuthContext.tsx
+  16:14  warning  Fast refresh only works when a file only exports components. Move your React context(s) to a separate file                      react-refresh/only-export-components
+  22:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  33:57  error    Async arrow function 'login' has no 'await' expression                                                                          @typescript-eslint/require-await
+  39:15  error    Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly                               @typescript-eslint/strict-boolean-expressions
+  39:35  error    Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator                       @typescript-eslint/prefer-nullish-coalescing
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/contexts/ThemeContext.tsx
+  10:14  warning  Fast refresh only works when a file only exports components. Move your React context(s) to a separate file                      react-refresh/only-export-components
+  16:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  27:13  error    Unnecessary conditional, value is always truthy                                                                                 @typescript-eslint/no-unnecessary-condition
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/hooks/use-mobile.tsx
+  18:12  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/hooks/useDashboard.ts
+   22:19  error  Type parameter T is used only once in the function signature                                                                                                        @typescript-eslint/no-unnecessary-type-parameters
+   29:19  error  Type parameter T is used only once in the function signature                                                                                                        @typescript-eslint/no-unnecessary-type-parameters
+   82:5   error  Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises
+   88:7   error  Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises
+  115:31  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator                                                           @typescript-eslint/prefer-nullish-coalescing
+  136:43  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator                                                           @typescript-eslint/prefer-nullish-coalescing
+  159:41  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator                                                           @typescript-eslint/prefer-nullish-coalescing
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/hooks/useFormField.ts
+   5:41  error  Unsafe argument of type error typed assigned to a parameter of type `Context<unknown>`      @typescript-eslint/no-unsafe-argument
+   6:40  error  Unsafe argument of type error typed assigned to a parameter of type `Context<unknown>`      @typescript-eslint/no-unsafe-argument
+   8:8   error  Unexpected any value in conditional. An explicit comparison or type conversion is required  @typescript-eslint/strict-boolean-expressions
+  15:5   error  Unsafe assignment of an error typed value                                                   @typescript-eslint/no-unsafe-assignment
+  16:5   error  Unsafe assignment of an error typed value                                                   @typescript-eslint/no-unsafe-assignment
+  17:20  error  Invalid type "any" of template literal expression                                           @typescript-eslint/restrict-template-expressions
+  18:27  error  Invalid type "any" of template literal expression                                           @typescript-eslint/restrict-template-expressions
+  19:23  error  Invalid type "any" of template literal expression                                           @typescript-eslint/restrict-template-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/hooks/useSidebar.ts
+  5:30  error  Unsafe argument of type error typed assigned to a parameter of type `Context<unknown>`      @typescript-eslint/no-unsafe-argument
+  6:8   error  Unexpected any value in conditional. An explicit comparison or type conversion is required  @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/hooks/useStore.ts
+  80:24  error  Invalid type "number" of template literal expression  @typescript-eslint/restrict-template-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/lib/api-client.ts
+   24:7   error  Using the spread operator on an array in an object will result in a list of indices                        @typescript-eslint/no-misused-spread
+   25:7   error  Using the spread operator on an array in an object will result in a list of indices                        @typescript-eslint/no-misused-spread
+   28:9   error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly          @typescript-eslint/strict-boolean-expressions
+   52:13  error  Unsafe assignment of an `any` value                                                                        @typescript-eslint/no-unsafe-assignment
+   56:23  error  Unsafe argument of type `any` assigned to a parameter of type `string | undefined`                         @typescript-eslint/no-unsafe-argument
+   56:23  error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+   56:29  error  Unsafe member access .message on an `any` value                                                            @typescript-eslint/no-unsafe-member-access
+   56:37  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+   56:63  error  Invalid type "number" of template literal expression                                                       @typescript-eslint/restrict-template-expressions
+   59:11  error  Unsafe assignment of an `any` value                                                                        @typescript-eslint/no-unsafe-assignment
+   60:5   error  Unsafe return of a value of type `any`                                                                     @typescript-eslint/no-unsafe-return
+   69:13  error  Unnecessary conditional, the types have no overlap                                                         @typescript-eslint/no-unnecessary-condition
+   69:36  error  Unnecessary conditional, the types have no overlap                                                         @typescript-eslint/no-unnecessary-condition
+  111:13  error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  120:13  error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  129:13  error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  143:23  error  Using the spread operator on an array in an object will result in a list of indices                        @typescript-eslint/no-misused-spread
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/lib/mock-data.ts
+  7:12  error  Parsing error: Property assignment expected
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/lib/msw/handlers.ts
+  40:26  error  Invalid type "any" of template literal expression                                                          @typescript-eslint/restrict-template-expressions
+  42:27  error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly          @typescript-eslint/strict-boolean-expressions
+  42:56  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+  43:28  error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly          @typescript-eslint/strict-boolean-expressions
+  43:58  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+  61:26  error  Invalid type "any" of template literal expression                                                          @typescript-eslint/restrict-template-expressions
+  61:26  error  Unsafe call of a(n) `error` type typed value                                                               @typescript-eslint/no-unsafe-call
+  75:26  error  Invalid type "any" of template literal expression                                                          @typescript-eslint/restrict-template-expressions
+  90:26  error  Invalid type "any" of template literal expression                                                          @typescript-eslint/restrict-template-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/lib/styles.ts
+  1:15  error  'ClassValue' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  1:27  error  'clsx' is defined but never used. Allowed unused vars must match /^_/u        @typescript-eslint/no-unused-vars
+  2:10  error  'twMerge' is defined but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/main.tsx
+  17:14  error  Forbidden non-null assertion  @typescript-eslint/no-non-null-assertion
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/Landing.tsx
+  256:14  error  Unexpected nullable number value in conditional. Please handle the nullish/zero/NaN cases explicitly  @typescript-eslint/strict-boolean-expressions
+  622:27  error  Promise-returning function provided to attribute where a void return was expected                     @typescript-eslint/no-misused-promises
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/Login.tsx
+  26:7   error  Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises
+  27:14  error  'err' is defined but never used                                                                                                                                     @typescript-eslint/no-unused-vars
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/SalesEnablement.tsx
+  9:5  error  Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/StrategyOverview.tsx
+  11:7   error  Unsafe assignment of an error typed value                                          @typescript-eslint/no-unsafe-assignment
+  18:7   error  Unsafe assignment of an error typed value                                          @typescript-eslint/no-unsafe-assignment
+  25:7   error  Unsafe assignment of an error typed value                                          @typescript-eslint/no-unsafe-assignment
+  32:7   error  Unsafe assignment of an error typed value                                          @typescript-eslint/no-unsafe-assignment
+  50:19  error  Unsafe assignment of an error typed value                                          @typescript-eslint/no-unsafe-assignment
+  55:25  error  Promise-returning function provided to attribute where a void return was expected  @typescript-eslint/no-misused-promises
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/knowledge-base/documentation/index.tsx
+    1:29  error  'CardHeader' is defined but never used. Allowed unused vars must match /^_/u                 @typescript-eslint/no-unused-vars
+    1:41  error  'CardTitle' is defined but never used. Allowed unused vars must match /^_/u                  @typescript-eslint/no-unused-vars
+   16:3   error  'Book' is defined but never used. Allowed unused vars must match /^_/u                       @typescript-eslint/no-unused-vars
+   24:3   error  'Shield' is defined but never used. Allowed unused vars must match /^_/u                     @typescript-eslint/no-unused-vars
+   50:9   error  'navigate' is assigned a value but never used. Allowed unused vars must match /^_/u          @typescript-eslint/no-unused-vars
+  296:34  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+  302:34  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/knowledge-base/faqs/index.tsx
+  205:6   warning  React Hook useMemo has a missing dependency: 'faqs'. Either include it or remove the dependency array           react-hooks/exhaustive-deps
+  210:7   error    Prefer using nullish coalescing operator (`??=`) instead of an assignment expression, as it is simpler to read  @typescript-eslint/prefer-nullish-coalescing
+  283:49  error    Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator       @typescript-eslint/prefer-nullish-coalescing
+  292:26  error    Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly               @typescript-eslint/strict-boolean-expressions
+  292:45  error    Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator       @typescript-eslint/prefer-nullish-coalescing
+  339:34  error    Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly                     @typescript-eslint/strict-boolean-expressions
+  361:34  error    Unexpected nullable number value in conditional. Please handle the nullish/zero/NaN cases explicitly            @typescript-eslint/strict-boolean-expressions
+  363:53  error    Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly                     @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/knowledge-base/implementation/index.tsx
+  15:3  error  'Circle' is defined but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+  24:3  error  'Lightbulb' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/knowledge-base/index.tsx
+   12:3   error    'FileText' is defined but never used. Allowed unused vars must match /^_/u                                       @typescript-eslint/no-unused-vars
+   14:3   error    'Users' is defined but never used. Allowed unused vars must match /^_/u                                          @typescript-eslint/no-unused-vars
+   19:3   error    'BookOpen' is defined but never used. Allowed unused vars must match /^_/u                                       @typescript-eslint/no-unused-vars
+  158:6   warning  React Hook useMemo has a missing dependency: 'categories'. Either include it or remove the dependency array      react-hooks/exhaustive-deps
+  168:6   warning  React Hook useMemo has a missing dependency: 'recentArticles'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  202:29  error    Promise-returning function provided to attribute where a void return was expected                                @typescript-eslint/no-misused-promises
+  284:30  error    Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly                      @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/knowledge-base/specifications/index.tsx
+    2:41  error  'CardTitle' is defined but never used. Allowed unused vars must match /^_/u                        @typescript-eslint/no-unused-vars
+   16:3   error  'Code' is defined but never used. Allowed unused vars must match /^_/u                             @typescript-eslint/no-unused-vars
+  264:34  error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly  @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/knowledge/BestPractices.tsx
+   15:7   error  Unsafe assignment of an error typed value  @typescript-eslint/no-unsafe-assignment
+   48:7   error  Unsafe assignment of an error typed value  @typescript-eslint/no-unsafe-assignment
+   81:7   error  Unsafe assignment of an error typed value  @typescript-eslint/no-unsafe-assignment
+  139:7   error  Unsafe assignment of an error typed value  @typescript-eslint/no-unsafe-assignment
+  144:7   error  Unsafe assignment of an error typed value  @typescript-eslint/no-unsafe-assignment
+  149:7   error  Unsafe assignment of an error typed value  @typescript-eslint/no-unsafe-assignment
+  154:7   error  Unsafe assignment of an error typed value  @typescript-eslint/no-unsafe-assignment
+  188:21  error  Unsafe assignment of an error typed value  @typescript-eslint/no-unsafe-assignment
+  259:23  error  Unsafe assignment of an error typed value  @typescript-eslint/no-unsafe-assignment
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/operations/QualityGates.tsx
+  115:39  error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly          @typescript-eslint/strict-boolean-expressions
+  115:68  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/operations/RiskManagement.tsx
+   71:7   error  Unsafe assignment of an error typed value             @typescript-eslint/no-unsafe-assignment
+   77:7   error  Unsafe assignment of an error typed value             @typescript-eslint/no-unsafe-assignment
+   83:7   error  Unsafe assignment of an error typed value             @typescript-eslint/no-unsafe-assignment
+   89:7   error  Unsafe assignment of an error typed value             @typescript-eslint/no-unsafe-assignment
+  171:43  error  Invalid type "number" of template literal expression  @typescript-eslint/restrict-template-expressions
+  171:53  error  Invalid type "number" of template literal expression  @typescript-eslint/restrict-template-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/playbooks/discovery/QualificationFramework.tsx
+   17:3    error  'Shield' is defined but never used. Allowed unused vars must match /^_/u                                   @typescript-eslint/no-unused-vars
+  171:7    error  Unsafe assignment of an `any` value                                                                        @typescript-eslint/no-unsafe-assignment
+  171:11   error  Invalid type "any" of template literal expression                                                          @typescript-eslint/restrict-template-expressions
+  171:23   error  Invalid type "any" of template literal expression                                                          @typescript-eslint/restrict-template-expressions
+  179:5    error  Unsafe call of a(n) `any` typed value                                                                      @typescript-eslint/no-unsafe-call
+  179:14   error  Unsafe member access .criteria on an `any` value                                                           @typescript-eslint/no-unsafe-member-access
+  180:13   error  Unsafe assignment of an error typed value                                                                  @typescript-eslint/no-unsafe-assignment
+  180:31   error  Invalid type "any" of template literal expression                                                          @typescript-eslint/restrict-template-expressions
+  180:40   error  Unsafe member access .category on an `any` value                                                           @typescript-eslint/no-unsafe-member-access
+  180:52   error  Invalid type "any" of template literal expression                                                          @typescript-eslint/restrict-template-expressions
+  181:11   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  182:32   error  Unsafe argument of type error typed assigned to a parameter of type `string`                               @typescript-eslint/no-unsafe-argument
+  193:9    error  'totalWeight' is assigned a value but never used. Allowed unused vars must match /^_/u                     @typescript-eslint/no-unused-vars
+  277:49   error  'categoryIndex' is defined but never used. Allowed unused args must match /^_/u                            @typescript-eslint/no-unused-vars
+  307:32   error  Unsafe assignment of an error typed value                                                                  @typescript-eslint/no-unsafe-assignment
+  307:32   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  307:63   error  Invalid type "number" of template literal expression                                                       @typescript-eslint/restrict-template-expressions
+  307:81   error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+  313:107  error  Invalid type "number" of template literal expression                                                       @typescript-eslint/restrict-template-expressions
+  313:125  error  Invalid type "number" of template literal expression                                                       @typescript-eslint/restrict-template-expressions
+  315:66   error  Invalid type "number" of template literal expression                                                       @typescript-eslint/restrict-template-expressions
+  315:84   error  Invalid type "number" of template literal expression                                                       @typescript-eslint/restrict-template-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/playbooks/expansion/index.tsx
+   21:3   error  'Building' is defined but never used. Allowed unused vars must match /^_/u                    @typescript-eslint/no-unused-vars
+   23:3   error  'Eye' is defined but never used. Allowed unused vars must match /^_/u                         @typescript-eslint/no-unused-vars
+   26:3   error  'Settings' is defined but never used. Allowed unused vars must match /^_/u                    @typescript-eslint/no-unused-vars
+   31:10  error  'selectedMetric' is assigned a value but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+   31:26  error  'setSelectedMetric' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  391:58  error  Invalid type "number" of template literal expression                                          @typescript-eslint/restrict-template-expressions
+  433:30  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly   @typescript-eslint/strict-boolean-expressions
+  434:30  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly   @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/playbooks/expansion/land-expand-model.tsx
+   19:3   error  'AlertTriangle' is defined but never used. Allowed unused vars must match /^_/u                    @typescript-eslint/no-unused-vars
+   31:10  error  'selectedPhase' is assigned a value but never used. Allowed unused vars must match /^_/u           @typescript-eslint/no-unused-vars
+   31:25  error  'setSelectedPhase' is assigned a value but never used. Allowed unused vars must match /^_/u        @typescript-eslint/no-unused-vars
+  774:20  error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly  @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/playbooks/expansion/psychology.tsx
+  330:51  error  Unnecessary conditional, value is always truthy                                                            @typescript-eslint/no-unnecessary-condition
+  330:51  error  Unexpected object value in conditional. The condition is always true                                       @typescript-eslint/strict-boolean-expressions
+  413:43  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+  417:49  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/playbooks/expansion/success-dashboard.tsx
+   31:27  error  'setSelectedMetric' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  294:30  error  Unexpected any value in conditional. An explicit comparison or type conversion is required    @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/playbooks/index.tsx
+   13:9   error  'any' overrides all other types in this union type  @typescript-eslint/no-redundant-type-constituents
+   13:27  error  'any' overrides all other types in this union type  @typescript-eslint/no-redundant-type-constituents
+   13:43  error  'any' overrides all other types in this union type  @typescript-eslint/no-redundant-type-constituents
+   26:5   error  Unsafe assignment of an error typed value           @typescript-eslint/no-unsafe-assignment
+   45:5   error  Unsafe assignment of an error typed value           @typescript-eslint/no-unsafe-assignment
+   64:5   error  Unsafe assignment of an error typed value           @typescript-eslint/no-unsafe-assignment
+  122:19  error  Unsafe assignment of an error typed value           @typescript-eslint/no-unsafe-assignment
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/playbooks/ninety-day/Prerequisites.tsx
+  215:20   error  Invalid type "number" of template literal expression                                                       @typescript-eslint/restrict-template-expressions
+  215:37   error  Invalid type "number" of template literal expression                                                       @typescript-eslint/restrict-template-expressions
+  357:87   error  Invalid type "number" of template literal expression                                                       @typescript-eslint/restrict-template-expressions
+  357:107  error  Invalid type "number" of template literal expression                                                       @typescript-eslint/restrict-template-expressions
+  373:33   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  373:53   error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+  373:56   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  373:69   error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+  373:72   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  375:36   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  381:36   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  387:36   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/playbooks/ninety-day/QualityGates.tsx
+    6:10  error  'Progress' is defined but never used. Allowed unused vars must match /^_/u                                 @typescript-eslint/no-unused-vars
+  113:39  error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly          @typescript-eslint/strict-boolean-expressions
+  113:68  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/sales-enablement/battle-cards/index.tsx
+  304:50  error  Invalid type "number" of template literal expression  @typescript-eslint/restrict-template-expressions
+  329:50  error  Invalid type "number" of template literal expression  @typescript-eslint/restrict-template-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/sales-enablement/index.tsx
+   20:3   error  'Users' is defined but never used. Allowed unused vars must match /^_/u                      @typescript-eslint/no-unused-vars
+   21:3   error  'Download' is defined but never used. Allowed unused vars must match /^_/u                   @typescript-eslint/no-unused-vars
+  209:30  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+  210:30  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/sales-enablement/pitch-decks/index.tsx
+   25:10  error  'Link' is defined but never used. Allowed unused vars must match /^_/u                       @typescript-eslint/no-unused-vars
+  216:28  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+  217:28  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+  266:22  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+  270:28  error  Unsafe call of a(n) `error` type typed value                                                 @typescript-eslint/no-unsafe-call
+  270:51  error  Unsafe member access .map on an `error` typed value                                          @typescript-eslint/no-unsafe-member-access
+  271:39  error  Unsafe assignment of an `any` value                                                          @typescript-eslint/no-unsafe-assignment
+  272:70  error  Unsafe member access .name on an `any` value                                                 @typescript-eslint/no-unsafe-member-access
+  273:74  error  Unsafe member access .slides on an `any` value                                               @typescript-eslint/no-unsafe-member-access
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/sales-enablement/quick-start/DiscoveryScripts.tsx
+   20:3   error  'Building' is defined but never used. Allowed unused vars must match /^_/u                  @typescript-eslint/no-unused-vars
+  301:24  error  Unexpected any value in conditional. An explicit comparison or type conversion is required  @typescript-eslint/strict-boolean-expressions
+  305:27  error  Unexpected any value in conditional. An explicit comparison or type conversion is required  @typescript-eslint/strict-boolean-expressions
+  307:28  error  Unsafe call of a(n) `error` type typed value                                                @typescript-eslint/no-unsafe-call
+  307:46  error  Unsafe member access .map on an `error` typed value                                         @typescript-eslint/no-unsafe-member-access
+  308:39  error  Unsafe assignment of an `any` value                                                         @typescript-eslint/no-unsafe-assignment
+  309:81  error  Unsafe member access .question on an `any` value                                            @typescript-eslint/no-unsafe-member-access
+  310:85  error  Unsafe member access .purpose on an `any` value                                             @typescript-eslint/no-unsafe-member-access
+  314:36  error  Unsafe call of a(n) `any` typed value                                                       @typescript-eslint/no-unsafe-call
+  314:38  error  Unsafe member access .followUps on an `any` value                                           @typescript-eslint/no-unsafe-member-access
+  315:46  error  Unsafe assignment of an `any` value                                                         @typescript-eslint/no-unsafe-assignment
+  328:24  error  Unexpected any value in conditional. An explicit comparison or type conversion is required  @typescript-eslint/strict-boolean-expressions
+  332:30  error  Unsafe call of a(n) `error` type typed value                                                @typescript-eslint/no-unsafe-call
+  332:43  error  Unsafe member access .map on an `error` typed value                                         @typescript-eslint/no-unsafe-member-access
+  333:40  error  Unsafe assignment of an `any` value                                                         @typescript-eslint/no-unsafe-assignment
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/sales-enablement/quick-start/ObjectionHandling.tsx
+  17:3  error  'AlertCircle' is defined but never used. Allowed unused vars must match /^_/u   @typescript-eslint/no-unused-vars
+  18:3  error  'CheckCircle2' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  19:3  error  'TrendingUp' is defined but never used. Allowed unused vars must match /^_/u    @typescript-eslint/no-unused-vars
+  24:3  error  'Zap' is defined but never used. Allowed unused vars must match /^_/u           @typescript-eslint/no-unused-vars
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/sales-enablement/quick-start/index.tsx
+   13:3   error  'DollarSign' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+   14:3   error  'ArrowRight' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  333:81  error  Invalid type "number" of template literal expression                          @typescript-eslint/restrict-template-expressions
+  335:48  error  Invalid type "number" of template literal expression                          @typescript-eslint/restrict-template-expressions
+  394:89  error  Invalid type "number" of template literal expression                          @typescript-eslint/restrict-template-expressions
+  396:58  error  Invalid type "number" of template literal expression                          @typescript-eslint/restrict-template-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/sales-enablement/tools/PricingConfigurator.tsx
+   24:3    error  'TrendingUp' is defined but never used. Allowed unused vars must match /^_/u                               @typescript-eslint/no-unused-vars
+   67:22   error  Unexpected any. Specify a different type                                                                   @typescript-eslint/no-explicit-any
+  123:24   error  Forbidden non-null assertion                                                                               @typescript-eslint/no-non-null-assertion
+  124:24   error  Forbidden non-null assertion                                                                               @typescript-eslint/no-non-null-assertion
+  125:18   error  Forbidden non-null assertion                                                                               @typescript-eslint/no-non-null-assertion
+  136:21   error  Unexpected nullable number value in conditional. Please handle the nullish/zero/NaN cases explicitly       @typescript-eslint/strict-boolean-expressions
+  136:38   error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+  239:83   error  Unsafe assignment of an `any` value                                                                        @typescript-eslint/no-unsafe-assignment
+  257:85   error  Unsafe assignment of an `any` value                                                                        @typescript-eslint/no-unsafe-assignment
+  268:85   error  Unsafe assignment of an `any` value                                                                        @typescript-eslint/no-unsafe-assignment
+  311:35   error  Unexpected value in conditional. A boolean expression is required                                          @typescript-eslint/strict-boolean-expressions
+  346:83   error  Unsafe assignment of an `any` value                                                                        @typescript-eslint/no-unsafe-assignment
+  389:107  error  Unexpected value in conditional. A boolean expression is required                                          @typescript-eslint/strict-boolean-expressions
+  399:108  error  Unexpected value in conditional. A boolean expression is required                                          @typescript-eslint/strict-boolean-expressions
+  496:56   error  Unsafe member access .senior on an `any` value                                                             @typescript-eslint/no-unsafe-member-access
+  502:56   error  Unsafe member access .mid on an `any` value                                                                @typescript-eslint/no-unsafe-member-access
+  508:56   error  Unsafe member access .junior on an `any` value                                                             @typescript-eslint/no-unsafe-member-access
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/sales-enablement/tools/ROICalculator.tsx
+  3:14  error  'H2' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  7:1   error  '@/components/ui/card' import is duplicated                           no-duplicate-imports
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/sales-enablement/tools/index.tsx
+  224:28  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+  225:28  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+  226:28  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+  257:23  error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly  @typescript-eslint/strict-boolean-expressions
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/strategy/EntryStrategies.tsx
+  4:1  error  '@/components/ui/card' import is duplicated  no-duplicate-imports
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/strategy/MarketOpportunities.tsx
+  9:10  error  'H1' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+/Users/jrkphani/Projects/ModAx/modax-internal/src/pages/strategy/MarketOpportunity.tsx
+  161:23  error  Promise-returning function provided to attribute where a void return was expected                          @typescript-eslint/no-misused-promises
+  233:32  error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  233:44  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+  233:47  error  Unexpected any value in conditional. An explicit comparison or type conversion is required                 @typescript-eslint/strict-boolean-expressions
+  233:59  error  Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator  @typescript-eslint/prefer-nullish-coalescing
+  417:29  error  Promise-returning function provided to attribute where a void return was expected                          @typescript-eslint/no-misused-promises
+  426:29  error  Promise-returning function provided to attribute where a void return was expected                          @typescript-eslint/no-misused-promises
+
+✖ 346 problems (333 errors, 13 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+

@@ -1,3 +1,4 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
 import { 
   PageLayout, 
@@ -5,11 +6,10 @@ import {
   PageHeader, 
   PageContent 
 } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { 
   MessageSquare,
   Target,
@@ -17,9 +17,7 @@ import {
   CheckCircle2,
   TrendingUp,
   Users,
-  DollarSign,
   Zap,
-  Building,
   Clock,
   FileText,
   ChevronRight
@@ -271,7 +269,7 @@ Best regards,
                 <Card key={key} className="border-gray-200">
                   <CardHeader 
                     className="cursor-pointer"
-                    onClick={() => setExpandedSection(expandedSection === key ? null : key)}
+                    onClick={() => { setExpandedSection(expandedSection === key ? null : key); }}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">

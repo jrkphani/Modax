@@ -17,7 +17,7 @@ export const AnimatedList = React.memo(
         setIndex((prevIndex) => (prevIndex + 1) % childrenArray.length)
       }, delay)
 
-      return () => clearInterval(interval)
+      return () => { clearInterval(interval); }
     }, [childrenArray.length, delay])
 
     const itemsToShow = useMemo(
@@ -26,10 +26,10 @@ export const AnimatedList = React.memo(
     )
 
     return (
-      <div className={`flex flex-col items-center gap-4 ${className}`}>
+      <div className={`flex flex-col items-center gap-4 ${className ?? ""}`}>
         <AnimatePresence>
           {itemsToShow.map((item, idx) => (
-            <AnimatedListItem key={`${index}-${idx}`}>
+            <AnimatedListItem key={`${String(index)}-${String(idx)}`}>
               {item}
             </AnimatedListItem>
           ))}

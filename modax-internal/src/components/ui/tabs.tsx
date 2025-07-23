@@ -75,7 +75,7 @@ export const TabsTrigger: React.FC<TabsTriggerProps> = ({ value, className, chil
         isActive && 'bg-background text-foreground shadow-sm',
         className
       )}
-      onClick={() => context.onValueChange(value)}
+      onClick={() => { context.onValueChange(value); }}
     >
       {children}
     </button>

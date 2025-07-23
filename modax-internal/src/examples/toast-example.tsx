@@ -48,7 +48,7 @@ export function ToastExample() {
           variant="outline"
           onClick={() => {
             const promise = new Promise((resolve) => {
-              setTimeout(() => resolve({ name: 'Data loaded' }), 2000)
+              setTimeout(() => { resolve({ name: 'Data loaded' }); }, 2000)
             })
             
             toast.promise(promise, {

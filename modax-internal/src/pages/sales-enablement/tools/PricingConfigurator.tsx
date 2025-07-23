@@ -1,3 +1,4 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
 import { 
   PageLayout, 
@@ -5,7 +6,6 @@ import {
   PageHeader, 
   PageContent 
 } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -21,7 +21,6 @@ import {
   Clock,
   AlertCircle,
   CheckCircle2,
-  TrendingUp,
   FileText,
   Zap,
   Shield
@@ -205,7 +204,7 @@ export default function PricingConfigurator() {
                         id="applicationName"
                         placeholder="e.g., Order Management System"
                         value={config.applicationName}
-                        onChange={(e) => setConfig(prev => ({ ...prev, applicationName: e.target.value }))}
+                        onChange={(e) => { setConfig(prev => ({ ...prev, applicationName: e.target.value })); }}
                       />
                     </div>
 
@@ -213,7 +212,7 @@ export default function PricingConfigurator() {
                       <Label htmlFor="complexity">Complexity Level</Label>
                       <Select
                         value={config.complexity}
-                        onValueChange={(value) => setConfig(prev => ({ ...prev, complexity: value }))}
+                        onValueChange={(value) => { setConfig(prev => ({ ...prev, complexity: value })); }}
                       >
                         <SelectTrigger>
                           <SelectValue />
@@ -236,7 +235,7 @@ export default function PricingConfigurator() {
                     <Label>Estimated Lines of Code: {config.linesOfCode.toLocaleString()}</Label>
                     <Slider
                       value={[config.linesOfCode]}
-                      onValueChange={([value]) => setConfig(prev => ({ ...prev, linesOfCode: value }))}
+                      onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, linesOfCode: value })); }}
                       min={10000}
                       max={1000000}
                       step={10000}
@@ -254,7 +253,7 @@ export default function PricingConfigurator() {
                       <Label>Number of Integrations: {config.integrations}</Label>
                       <Slider
                         value={[config.integrations]}
-                        onValueChange={([value]) => setConfig(prev => ({ ...prev, integrations: value }))}
+                        onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, integrations: value })); }}
                         min={0}
                         max={50}
                         step={1}
@@ -265,7 +264,7 @@ export default function PricingConfigurator() {
                       <Label>User Count: {config.userCount}</Label>
                       <Slider
                         value={[config.userCount]}
-                        onValueChange={([value]) => setConfig(prev => ({ ...prev, userCount: value }))}
+                        onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, userCount: value })); }}
                         min={10}
                         max={10000}
                         step={10}
@@ -277,7 +276,7 @@ export default function PricingConfigurator() {
                     <Label htmlFor="dataVolume">Data Volume</Label>
                     <Select
                       value={config.dataVolume}
-                      onValueChange={(value) => setConfig(prev => ({ ...prev, dataVolume: value }))}
+                      onValueChange={(value) => { setConfig(prev => ({ ...prev, dataVolume: value })); }}
                     >
                       <SelectTrigger>
                         <SelectValue />
@@ -343,7 +342,7 @@ export default function PricingConfigurator() {
                     <Label>Timeline: {config.timeline} months</Label>
                     <Slider
                       value={[config.timeline]}
-                      onValueChange={([value]) => setConfig(prev => ({ ...prev, timeline: value }))}
+                      onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, timeline: value })); }}
                       min={3}
                       max={18}
                       step={1}
@@ -359,7 +358,7 @@ export default function PricingConfigurator() {
                     <Label htmlFor="teamSize">Team Size</Label>
                     <Select
                       value={config.teamSize}
-                      onValueChange={(value) => setConfig(prev => ({ ...prev, teamSize: value }))}
+                      onValueChange={(value) => { setConfig(prev => ({ ...prev, teamSize: value })); }}
                     >
                       <SelectTrigger>
                         <SelectValue />
@@ -386,7 +385,7 @@ export default function PricingConfigurator() {
                         <Checkbox
                           id="support"
                           checked={config.includeSupport}
-                          onCheckedChange={(checked) => setConfig(prev => ({ ...prev, includeSupport: !!checked }))}
+                          onCheckedChange={(checked) => { setConfig(prev => ({ ...prev, includeSupport: !!checked })); }}
                         />
                         <Label htmlFor="support" className="font-normal cursor-pointer">
                           24/7 Production Support (15% of project cost)
@@ -396,7 +395,7 @@ export default function PricingConfigurator() {
                         <Checkbox
                           id="training"
                           checked={config.includeTraining}
-                          onCheckedChange={(checked) => setConfig(prev => ({ ...prev, includeTraining: !!checked }))}
+                          onCheckedChange={(checked) => { setConfig(prev => ({ ...prev, includeTraining: !!checked })); }}
                         />
                         <Label htmlFor="training" className="font-normal cursor-pointer">
                           Team Training & Knowledge Transfer

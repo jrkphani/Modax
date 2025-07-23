@@ -202,17 +202,17 @@ export default function FAQs() {
       const matchesCategory = selectedCategory === 'all' || faq.category === selectedCategory
       return matchesSearch && matchesCategory
     })
-  }, [searchQuery, selectedCategory, faqs])
+  }, [searchQuery, selectedCategory])
 
   // Group FAQs by category
   const groupedFAQs = useMemo(() => {
-    return filteredFAQs.reduce((acc, faq) => {
+    return filteredFAQs.reduce<Record<string, FAQ[]>>((acc, faq) => {
       if (!acc[faq.category]) {
         acc[faq.category] = []
       }
       acc[faq.category].push(faq)
       return acc
-    }, {} as Record<string, FAQ[]>)
+    }, {})
   }, [filteredFAQs])
 
   const handleHelpful = (faqId: string) => {
@@ -236,7 +236,7 @@ export default function FAQs() {
                 type="text"
                 placeholder="Search for answers..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => { setSearchQuery(e.target.value); }}
                 className="pl-12 pr-4 h-12 text-base"
               />
             </div>
@@ -247,7 +247,7 @@ export default function FAQs() {
             <Button
               variant={selectedCategory === 'all' ? 'default' : 'outline'}
               size="sm"
-              onClick={() => setSelectedCategory('all')}
+              onClick={() => { setSelectedCategory('all'); }}
               className={selectedCategory === 'all' ? 'bg-purple-600 hover:bg-purple-700' : ''}
             >
               All Questions
@@ -262,7 +262,7 @@ export default function FAQs() {
                   key={category.id}
                   variant={selectedCategory === category.id ? 'default' : 'outline'}
                   size="sm"
-                  onClick={() => setSelectedCategory(category.id)}
+                  onClick={() => { setSelectedCategory(category.id); }}
                   className={selectedCategory === category.id ? 'bg-purple-600 hover:bg-purple-700' : ''}
                 >
                   <Icon className="h-4 w-4 mr-2" />
@@ -345,14 +345,14 @@ export default function FAQs() {
                                     <Button
                                       variant="outline"
                                       size="sm"
-                                      onClick={() => handleHelpful(faq.id)}
+                                      onClick={() => { handleHelpful(faq.id); }}
                                     >
                                       Yes
                                     </Button>
                                     <Button
                                       variant="outline"
                                       size="sm"
-                                      onClick={() => handleHelpful(faq.id)}
+                                      onClick={() => { handleHelpful(faq.id); }}
                                     >
                                       No
                                     </Button>

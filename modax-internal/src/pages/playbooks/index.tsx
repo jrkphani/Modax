@@ -1,13 +1,24 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React from 'react';
-import { ArrowRight, Calendar, Search, Target, TrendingUp, Users, CheckCircle, Clock } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress-enhanced';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { PageContainer } from '@/components/layout/PageLayout';
 
-const playbooks = [
+interface Playbook {
+  id: string;
+  title: string;
+  description: string;
+  icon: typeof Calendar | typeof Search | typeof TrendingUp;
+  path: string;
+  progress: number;
+  status: string;
+  sections: { name: string; path: string }[];
+  highlights: string[];
+}
+
+const playbooks: Playbook[] = [
   {
     id: 'ninety-day',
     title: '90-Day Execution Playbook',

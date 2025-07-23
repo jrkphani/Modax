@@ -1,15 +1,9 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
-import { H1, H2, H3, P, Lead, Muted } from '@/components/ui/typography'
+import { H1, H3, P, Lead, Muted } from '@/components/ui/typography'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
 import { PageContainer } from '@/components/layout/PageLayout'
 
 interface ROIFormData {
@@ -104,7 +98,7 @@ export default function ROICalculators() {
           Demonstrate the value of modernization with clear financial projections
         </Lead>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => { handleSubmit(e) }}>
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* Input Parameters */}
             <Card>
@@ -125,7 +119,7 @@ export default function ROICalculators() {
                       type="number"
                       placeholder="e.g., 50000"
                       value={formData.currentCost || ''}
-                      onChange={(e) => handleInputChange('currentCost', e.target.value)}
+                      onChange={(e) => { handleInputChange('currentCost', e.target.value); }}
                     />
                     <Muted>Include licensing, maintenance, and infrastructure</Muted>
                   </div>
@@ -137,7 +131,7 @@ export default function ROICalculators() {
                       type="number"
                       placeholder="e.g., 120"
                       value={formData.currentTime || ''}
-                      onChange={(e) => handleInputChange('currentTime', e.target.value)}
+                      onChange={(e) => { handleInputChange('currentTime', e.target.value); }}
                     />
                     <Muted>Total hours spent on repetitive manual tasks</Muted>
                   </div>
@@ -149,7 +143,7 @@ export default function ROICalculators() {
                       type="number"
                       placeholder="e.g., 25"
                       value={formData.employeeCount || ''}
-                      onChange={(e) => handleInputChange('employeeCount', e.target.value)}
+                      onChange={(e) => { handleInputChange('employeeCount', e.target.value); }}
                     />
                   </div>
 
@@ -160,7 +154,7 @@ export default function ROICalculators() {
                       type="number"
                       placeholder="e.g., 75"
                       value={formData.averageHourlyRate || ''}
-                      onChange={(e) => handleInputChange('averageHourlyRate', e.target.value)}
+                      onChange={(e) => { handleInputChange('averageHourlyRate', e.target.value); }}
                     />
                   </div>
                 </div>
@@ -175,7 +169,7 @@ export default function ROICalculators() {
                       type="number"
                       placeholder="e.g., 25"
                       value={formData.expectedEfficiencyGain || ''}
-                      onChange={(e) => handleInputChange('expectedEfficiencyGain', e.target.value)}
+                      onChange={(e) => { handleInputChange('expectedEfficiencyGain', e.target.value); }}
                     />
                     <Muted>Typical range: 20-40% for AI modernization</Muted>
                   </div>
@@ -187,7 +181,7 @@ export default function ROICalculators() {
                       type="number"
                       placeholder="e.g., 250000"
                       value={formData.implementationCost || ''}
-                      onChange={(e) => handleInputChange('implementationCost', e.target.value)}
+                      onChange={(e) => { handleInputChange('implementationCost', e.target.value); }}
                     />
                   </div>
 
@@ -198,7 +192,7 @@ export default function ROICalculators() {
                       type="number"
                       placeholder="e.g., 6"
                       value={formData.timeToImplement || ''}
-                      onChange={(e) => handleInputChange('timeToImplement', e.target.value)}
+                      onChange={(e) => { handleInputChange('timeToImplement', e.target.value); }}
                     />
                   </div>
                 </div>

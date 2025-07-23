@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -10,14 +9,12 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
 import { SearchResults } from './SearchResults'
-import { quickActions } from '@/config/search-config'
-import type { SearchableItem, QuickAction } from '@/config/search-config'
+import { quickActions, type SearchableItem, type QuickAction } from '@/config/search-config'
 
 export function GlobalSearch() {
   const [open, setOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
-  const navigate = useNavigate()
 
   // Handle keyboard shortcut (Cmd/Ctrl + K)
   useEffect(() => {
@@ -35,7 +32,7 @@ export function GlobalSearch() {
     }
 
     document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
+    return () => { document.removeEventListener('keydown', handleKeyDown); }
   }, [open])
 
   // Focus input when dialog opens
@@ -48,7 +45,7 @@ export function GlobalSearch() {
   }, [open])
 
   // Handle result selection
-  const handleSelectResult = useCallback((result: SearchableItem | QuickAction) => {
+  const handleSelectResult = useCallback((_result: SearchableItem | QuickAction) => {
     setOpen(false)
     setSearchQuery('')
   }, [])
@@ -60,14 +57,14 @@ export function GlobalSearch() {
       setDebouncedQuery(searchQuery)
     }, 150)
 
-    return () => clearTimeout(timer)
+    return () => { clearTimeout(timer); }
   }, [searchQuery])
 
   return (
     <>
       {/* Search Trigger Button */}
       <Button
-        onClick={() => setOpen(true)}
+        onClick={() => { setOpen(true); }}
         variant="ghost"
         className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900"
       >
@@ -89,14 +86,14 @@ export function GlobalSearch() {
                 ref={inputRef}
                 placeholder="Search pages, documents, tools, or type a command..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => { setSearchQuery(e.target.value); }}
                 className="pl-10 pr-4 h-12 text-base border-0 focus-visible:ring-0"
               />
-              {searchQuery && (
+              {searchQuery !== '' && (
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={() => setSearchQuery('')}
+                  onClick={() => { setSearchQuery(''); }}
                   className="absolute right-2 top-1/2 transform -translate-y-1/2 h-6 px-2 text-gray-400 hover:text-gray-600"
                 >
                   Clear

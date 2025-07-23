@@ -6,7 +6,7 @@ import {
   PageContent 
 } from '@/components/layout/PageLayout'
 import { Card, CardContent } from '@/components/ui/card'
-import { H1, H2, H3, H4, P, Lead, Muted, List } from '@/components/ui/typography'
+import { H2, H3, H4, P, Lead, Muted, List } from '@/components/ui/typography'
 import { Separator } from '@/components/ui/separator'
 
 export default function BattleCards() {

@@ -17,7 +17,7 @@ class ApiClient {
   }
 
   // Request interceptor
-  private async prepareRequest(config: RequestConfig): Promise<RequestConfig> {
+  private prepareRequest(config: RequestConfig): RequestConfig {
     const token = localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN);
     
     const headers: HeadersInit = {
@@ -26,7 +26,7 @@ class ApiClient {
     };
 
     if (token) {
-      headers['Authorization'] = `Bearer ${token}`;
+      headers.Authorization = `Bearer ${token}`;
     }
 
     return {
@@ -83,7 +83,7 @@ class ApiClient {
     try {
       const { params, ...requestConfig } = config;
       const url = this.buildURL(endpoint, params);
-      const preparedConfig = await this.prepareRequest(requestConfig);
+      const preparedConfig = this.prepareRequest(requestConfig);
       
       const response = await fetch(url, preparedConfig);
       const data = await this.handleResponse<ApiResponse<T>>(response);

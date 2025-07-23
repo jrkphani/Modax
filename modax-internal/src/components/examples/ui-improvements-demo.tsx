@@ -1,6 +1,5 @@
-import React from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   Typography, 
   H1, H2, H3, H4, 
@@ -8,7 +7,7 @@ import {
   InlineCode, List, Blockquote 
 } from '@/components/ui/typography'
 import { EmptyState } from '@/components/ui/empty-state'
-import { LoadingState, PageLoader, SectionLoader, InlineLoader, SkeletonList } from '@/components/ui/loading-state'
+import { LoadingState, SectionLoader, InlineLoader, SkeletonList } from '@/components/ui/loading-state'
 import { Search, FileX, Inbox, Database } from 'lucide-react'
 
 export function UIImprovementsDemo() {

@@ -1,4 +1,4 @@
-import { ChartConfig } from '@/components/ui/chart'
+import type { ChartConfig } from '@/components/ui/chart'
 import { designTokens } from './design-tokens'
 
 // Default chart colors using our design tokens
@@ -68,13 +68,13 @@ export const chartConfigs = {
 
 // Helper function to generate chart config from data keys
 export function generateChartConfig(dataKeys: string[]): ChartConfig {
-  return dataKeys.reduce((config, key, index) => {
+  return dataKeys.reduce<ChartConfig>((config, key, index) => {
     config[key] = {
       label: key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1'),
       color: chartColorPalette[index % chartColorPalette.length],
     }
     return config
-  }, {} as ChartConfig)
+  }, {})
 }
 
 // Metric-specific color mappings

@@ -1,7 +1,6 @@
 import * as React from "react"
-import { ColumnDef } from "@tanstack/react-table"
+import type { ColumnDef } from "@tanstack/react-table"
 import { 
-  ArrowUpDown, 
   MoreHorizontal, 
   Circle,
   CircleCheck,
@@ -24,7 +23,7 @@ import { DataTable } from "@/components/ui/data-table"
 import { DataTableColumnHeader } from "@/components/ui/data-table-column-header"
 
 // Enhanced payment type with more fields
-export type Payment = {
+export interface Payment {
   id: string
   amount: number
   status: "pending" | "processing" | "success" | "failed"
@@ -101,16 +100,16 @@ export const columns: ColumnDef<Payment>[] = [
       <Checkbox
         checked={
           table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
+          (table.getIsSomePageRowsSelected() ? "indeterminate" : false)
         }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        onCheckedChange={(value) => { table.toggleAllPageRowsSelected(Boolean(value)) }}
         aria-label="Select all"
       />
     ),
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        onCheckedChange={(value) => { row.toggleSelected(Boolean(value)) }}
         aria-label="Select row"
       />
     ),
@@ -149,7 +148,7 @@ export const columns: ColumnDef<Payment>[] = [
 
       return (
         <div className="flex w-[100px] items-center">
-          {status.icon && (
+          {status.icon != null && (
             <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
           )}
           <span>{status.label}</span>
@@ -157,7 +156,7 @@ export const columns: ColumnDef<Payment>[] = [
       )
     },
     filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id))
+      return (value as string[]).includes(row.getValue(id))
     },
   },
   {
@@ -181,7 +180,7 @@ export const columns: ColumnDef<Payment>[] = [
       )
     },
     filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id))
+      return (value as string[]).includes(row.getValue(id))
     },
   },
   {
@@ -201,7 +200,7 @@ export const columns: ColumnDef<Payment>[] = [
       return <span>{category.label}</span>
     },
     filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id))
+      return (value as string[]).includes(row.getValue(id))
     },
   },
   {
@@ -249,7 +248,7 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+              onClick={() => { void navigator.clipboard.writeText(payment.id) }}
             >
               Copy payment ID
             </DropdownMenuItem>
@@ -276,7 +275,7 @@ function generatePayments(count: number): Payment[] {
     status: statusOptions[Math.floor(Math.random() * statusOptions.length)],
     method: methodOptions[Math.floor(Math.random() * methodOptions.length)],
     category: categoryOptions[Math.floor(Math.random() * categoryOptions.length)],
-    email: `user${i + 1}@${domains[Math.floor(Math.random() * domains.length)]}`,
+    email: `user${String(i + 1)}@${domains[Math.floor(Math.random() * domains.length)] ?? 'example.com'}`,
     createdAt: new Date(Date.now() - Math.floor(Math.random() * 10000000000)),
   }))
 }
@@ -319,3 +318,5 @@ export function DataTableAdvancedDemo() {
     </div>
   )
 }
+// Import constants from separate file
+import { statuses, methods, categories } from './data-table-constants'

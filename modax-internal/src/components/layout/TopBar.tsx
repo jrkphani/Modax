@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Bell, User, Search } from 'lucide-react';
+import { Bell, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { GlobalSearch } from '@/components/search/GlobalSearch';
 import { useAuth } from '@/contexts/AuthContext';
@@ -90,12 +90,12 @@ export function TopBar() {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="flex items-center gap-2">
                 <Avatar className="h-8 w-8">
-                  <AvatarImage src={getAvatarUrl(user?.email || 'default')} />
+                  <AvatarImage src={getAvatarUrl(user?.email ?? 'default')} />
                   <AvatarFallback>
-                    {user?.name?.charAt(0).toUpperCase() || 'U'}
+                    {user?.name !== undefined ? user.name.charAt(0).toUpperCase() : 'U'}
                   </AvatarFallback>
                 </Avatar>
-                <span className="text-sm font-medium">{user?.name || 'User'}</span>
+                <span className="text-sm font-medium">{user?.name ?? 'User'}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">

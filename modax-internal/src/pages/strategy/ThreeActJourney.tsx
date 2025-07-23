@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, PageContainer, PageHeader, PageContent } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -17,12 +17,9 @@ import {
   AlertCircle,
   Clock,
   TrendingUp,
-  Users,
   Brain,
-  Rocket,
-  ChevronRight
+  Rocket
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 export default function ThreeActJourney() {
   const navigate = useNavigate()
@@ -197,7 +194,7 @@ export default function ThreeActJourney() {
             <Button 
               variant="ghost" 
               size="sm"
-              onClick={() => navigate('/strategy')}
+              onClick={() => { void navigate('/strategy') }}
               className="mb-4"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -231,18 +228,18 @@ export default function ThreeActJourney() {
             <TabsContent value="act1" className="mt-6">
               <div className="space-y-8">
                 {/* Overview Card */}
-                <Card className={cn(currentAct.borderColor)}>
+                <Card className={currentAct.borderColor}>
                   <CardHeader className={currentAct.bgColor}>
                     <div className="flex items-center justify-between">
                       <div>
                         <CardTitle className="text-2xl flex items-center space-x-2">
-                          <currentAct.icon className={cn("h-6 w-6", currentAct.color)} />
+                          <currentAct.icon className={`h-6 w-6 ${currentAct.color}`} />
                           <span>{currentAct.title}</span>
                         </CardTitle>
                         <CardDescription className="text-base">{currentAct.subtitle}</CardDescription>
                       </div>
                       <div className="text-center">
-                        <div className={cn("text-4xl font-bold", currentAct.color)}>{currentAct.stat}</div>
+                        <div className={`text-4xl font-bold ${currentAct.color}`}>{currentAct.stat}</div>
                         <p className="text-sm text-gray-600">{currentAct.statLabel}</p>
                       </div>
                     </div>
@@ -297,18 +294,18 @@ export default function ThreeActJourney() {
             <TabsContent value="act2" className="mt-6">
               <div className="space-y-8">
                 {/* Overview Card */}
-                <Card className={cn(currentAct.borderColor)}>
+                <Card className={currentAct.borderColor}>
                   <CardHeader className={currentAct.bgColor}>
                     <div className="flex items-center justify-between">
                       <div>
                         <CardTitle className="text-2xl flex items-center space-x-2">
-                          <currentAct.icon className={cn("h-6 w-6", currentAct.color)} />
+                          <currentAct.icon className={`h-6 w-6 ${currentAct.color}`} />
                           <span>{currentAct.title}</span>
                         </CardTitle>
                         <CardDescription className="text-base">{currentAct.subtitle}</CardDescription>
                       </div>
                       <div className="text-center">
-                        <div className={cn("text-4xl font-bold", currentAct.color)}>{currentAct.stat}</div>
+                        <div className={`text-4xl font-bold ${currentAct.color}`}>{currentAct.stat}</div>
                         <p className="text-sm text-gray-600">{currentAct.statLabel}</p>
                       </div>
                     </div>
@@ -376,18 +373,18 @@ export default function ThreeActJourney() {
             <TabsContent value="act3" className="mt-6">
               <div className="space-y-8">
                 {/* Overview Card */}
-                <Card className={cn(currentAct.borderColor)}>
+                <Card className={currentAct.borderColor}>
                   <CardHeader className={currentAct.bgColor}>
                     <div className="flex items-center justify-between">
                       <div>
                         <CardTitle className="text-2xl flex items-center space-x-2">
-                          <currentAct.icon className={cn("h-6 w-6", currentAct.color)} />
+                          <currentAct.icon className={`h-6 w-6 ${currentAct.color}`} />
                           <span>{currentAct.title}</span>
                         </CardTitle>
                         <CardDescription className="text-base">{currentAct.subtitle}</CardDescription>
                       </div>
                       <div className="text-center">
-                        <div className={cn("text-4xl font-bold", currentAct.color)}>{currentAct.stat}</div>
+                        <div className={`text-4xl font-bold ${currentAct.color}`}>{currentAct.stat}</div>
                         <p className="text-sm text-gray-600">{currentAct.statLabel}</p>
                       </div>
                     </div>
@@ -471,13 +468,13 @@ export default function ThreeActJourney() {
                 <div className="flex gap-3">
                   <Button 
                     variant="outline"
-                    onClick={() => navigate('/90-day-playbook')}
+                    onClick={() => { void navigate('/90-day-playbook') }}
                   >
                     <Clock className="mr-2 h-4 w-4" />
                     90-Day Playbook
                   </Button>
                   <Button 
-                    onClick={() => navigate('/sales-enablement/battle-cards')}
+                    onClick={() => { void navigate('/sales-enablement/battle-cards') }}
                     className="bg-primary hover:bg-primary/90"
                   >
                     Battle Cards

@@ -1,27 +1,23 @@
-import React, { useState } from 'react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, PageContainer, PageHeader, PageContent } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { 
   ArrowLeft, 
   Trophy,
   TrendingUp,
-  Users,
-  Building,
   DollarSign,
   Clock,
   CheckCircle,
   Zap,
   BarChart3,
   Target,
-  Brain,
   Shield,
   ChevronRight
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 export default function SuccessStories() {
   const navigate = useNavigate()
@@ -161,7 +157,7 @@ export default function SuccessStories() {
             <Button 
               variant="ghost" 
               size="sm"
-              onClick={() => navigate('/strategy')}
+              onClick={() => { void navigate('/strategy') }}
               className="mb-4"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -358,7 +354,7 @@ export default function SuccessStories() {
                       <Button 
                         variant="outline" 
                         className="w-full"
-                        onClick={() => navigate('/case-studies')}
+                        onClick={() => { void navigate('/case-studies') }}
                       >
                         View All Case Studies
                         <ChevronRight className="ml-2 h-4 w-4" />
@@ -415,7 +411,7 @@ export default function SuccessStories() {
                 <div className="flex flex-wrap gap-4 justify-center">
                   <Button 
                     size="lg"
-                    onClick={() => navigate('/90-day-playbook')}
+                    onClick={() => { void navigate('/90-day-playbook') }}
                     className="bg-primary hover:bg-primary/90"
                   >
                     <Zap className="mr-2 h-5 w-5" />
@@ -424,7 +420,7 @@ export default function SuccessStories() {
                   <Button 
                     size="lg"
                     variant="outline"
-                    onClick={() => navigate('/sales-enablement/battle-cards')}
+                    onClick={() => { void navigate('/sales-enablement/battle-cards') }}
                   >
                     <Target className="mr-2 h-5 w-5" />
                     Access Battle Cards

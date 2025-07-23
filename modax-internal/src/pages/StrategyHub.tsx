@@ -1,5 +1,4 @@
-import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from '@/components/ui/button'
 import { 
   PageContainer, 
@@ -102,7 +101,7 @@ export default function StrategyHub() {
           <div className="flex justify-center pt-8">
             <Button 
               size="lg" 
-              onClick={() => navigate('/intelligence-fabric')}
+              onClick={() => { void navigate('/intelligence-fabric') }}
               className="bg-gray-900 hover:bg-gray-800"
             >
               View Intelligence Fabric

@@ -32,7 +32,7 @@ export const handlers = [
   http.get(`${BASE_URL}${API_ENDPOINTS.DASHBOARD.METRICS}`, () => {
     return HttpResponse.json({
       success: true,
-      data: mockDashboardMetrics()
+      data: mockDashboardMetrics
     })
   }),
 

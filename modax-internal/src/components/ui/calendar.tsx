@@ -4,10 +4,11 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "lucide-react"
-import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker"
+import { DayPicker, getDefaultClassNames, type DayButton } from "react-day-picker"
 
 import { cn } from "@/lib/utils"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button-variants"
 
 function Calendar({
   className,
@@ -191,9 +192,9 @@ function CalendarDayButton({
       data-day={day.date.toLocaleDateString()}
       data-selected-single={
         modifiers.selected &&
-        !modifiers.range_start &&
-        !modifiers.range_end &&
-        !modifiers.range_middle
+        modifiers.range_start !== true &&
+        modifiers.range_end !== true &&
+        modifiers.range_middle !== true
       }
       data-range-start={modifiers.range_start}
       data-range-end={modifiers.range_end}

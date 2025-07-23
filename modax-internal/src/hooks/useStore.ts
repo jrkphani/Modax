@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { User, Notification } from '@/types';
+import type { User, Notification } from '@/types';
 import { STORAGE_KEYS } from '@/lib/constants';
 
 // User slice
@@ -39,11 +39,11 @@ interface StoreState extends UserSlice, UISlice, NotificationSlice {}
 // Create the store
 const useStore = create<StoreState>()(
   persist(
-    (set, get) => ({
+    (set, _get) => ({
       // User slice implementation
       user: null,
       isAuthenticated: false,
-      setUser: (user) => set({ user, isAuthenticated: !!user }),
+      setUser: (user) => { set({ user, isAuthenticated: !!user }); },
       logout: () => {
         // Clear auth tokens
         localStorage.removeItem(STORAGE_KEYS.AUTH_TOKEN);
@@ -56,9 +56,9 @@ const useStore = create<StoreState>()(
       sidebarCollapsed: false,
       sidebarWidth: 280,
       theme: 'system',
-      toggleSidebar: () => set((state) => ({ sidebarCollapsed: !state.sidebarCollapsed })),
-      setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
-      setSidebarWidth: (width) => set({ sidebarWidth: width }),
+      toggleSidebar: () => { set((state) => ({ sidebarCollapsed: !state.sidebarCollapsed })); },
+      setSidebarCollapsed: (collapsed) => { set({ sidebarCollapsed: collapsed }); },
+      setSidebarWidth: (width) => { set({ sidebarWidth: width }); },
       setTheme: (theme) => {
         set({ theme });
         

@@ -1,10 +1,10 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { 
   PageContainer, 
   PageHeader 
 } from '@/components/layout/PageLayout'
-import { Layers, Code2, Network, Bot } from 'lucide-react'
+import { Code2, Network, Bot } from 'lucide-react'
 
 export default function IntelligenceFabric() {
   const layers = [

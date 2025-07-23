@@ -24,14 +24,13 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import { navigationItems } from "@/config/navigation"
-import { designTokens } from "@/config/design-tokens"
 import { cn } from "@/lib/utils"
 import { useAuth } from "@/contexts/AuthContext"
 
 export function AppSidebar() {
   const location = useLocation()
   const navigate = useNavigate()
-  const { logout } = useAuth()
+  useAuth() // logout not used currently
   const [openItems, setOpenItems] = React.useState<string[]>(["sales-enablement", "playbooks", "resources", "knowledge-base"])
 
   const toggleItem = (itemId: string) => {
@@ -43,11 +42,11 @@ export function AppSidebar() {
   }
 
   const handleNavigation = (path: string) => {
-    navigate(path)
+    void navigate(path)
   }
 
   const isActive = (path?: string) => {
-    if (!path) return false
+    if (path === undefined) return false
     return location.pathname === path
   }
 
@@ -78,7 +77,7 @@ export function AppSidebar() {
                   return (
                     <SidebarMenuItem key={item.id}>
                       <SidebarMenuButton
-                        onClick={() => handleNavigation(item.path)}
+                        onClick={() => { handleNavigation(item.path) }}
                         isActive={isActive(item.path)}
                         className={cn(
                           isActive(item.path) && "bg-primary/10 text-primary hover:bg-primary/20"
@@ -100,7 +99,7 @@ export function AppSidebar() {
                   <Collapsible
                     key={item.id}
                     open={isOpen}
-                    onOpenChange={() => toggleItem(item.id)}
+                    onOpenChange={() => { toggleItem(item.id) }}
                   >
                     <SidebarMenuItem>
                       <CollapsibleTrigger asChild>
@@ -129,7 +128,7 @@ export function AppSidebar() {
                           {item.children.map((subItem) => (
                             <SidebarMenuSubItem key={subItem.id}>
                               <SidebarMenuSubButton
-                                onClick={() => handleNavigation(subItem.path)}
+                                onClick={() => { handleNavigation(subItem.path) }}
                                 isActive={isActive(subItem.path)}
                                 className={cn(
                                   isActive(subItem.path) && "bg-primary/10 text-primary hover:bg-primary/20"

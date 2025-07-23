@@ -1,11 +1,10 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { 
   PageContainer, 
   PageHeader 
 } from '@/components/layout/PageLayout'
-import { ArrowRight, TrendingUp, Users, DollarSign, Calendar } from 'lucide-react'
 
 export default function CaseStudies() {
   const valuemaxStory = [

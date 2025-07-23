@@ -1,11 +1,21 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import PageLayout from '@/components/layout/PageLayout';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress-enhanced';
-import { CheckCircle2, AlertCircle, XCircle, ArrowRight, Shield, Activity, Target, TrendingUp, ArrowLeft, Download, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { 
+  Shield, 
+  Target, 
+  Activity, 
+  TrendingUp, 
+  CheckCircle2, 
+  XCircle, 
+  AlertCircle, 
+  ArrowLeft, 
+  FileText, 
+  Download 
+} from 'lucide-react';
 
 export default function QualityGates() {
   const qualityStages = [
@@ -111,7 +121,7 @@ export default function QualityGates() {
       return 'pending'
     } else if (current.includes('%')) {
       const currentVal = parseFloat(current)
-      const thresholdVal = parseFloat(threshold.match(/\d+/)?.[0] || '0')
+      const thresholdVal = parseFloat((/\d+/.exec(threshold))?.[0] || '0')
       return currentVal >= thresholdVal ? 'pass' : 'fail'
     }
     return 'pending'

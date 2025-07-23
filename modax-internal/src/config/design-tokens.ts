@@ -457,9 +457,9 @@ export const getCSSVariables = () => {
     } else if (typeof colorValue === 'object') {
       Object.entries(colorValue).forEach(([shade, value]) => {
         if (shade === 'DEFAULT') {
-          cssVars[`--color-${colorName}`] = value as string;
+          cssVars[`--color-${colorName}`] = String(value);
         } else {
-          cssVars[`--color-${colorName}-${shade}`] = value as string;
+          cssVars[`--color-${colorName}-${shade}`] = String(value);
         }
       });
     }
