@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 221 39% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 221 39% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 39% 11%;
+    --primary: 262 59% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 160 41% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 7% 94%;
+    --muted-foreground: 213 14% 39%;
+    --accent: 296 64% 51%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 16% 90%;
+    --input: 217 16% 90%;
+    --ring: 233 70% 65%;
+    --radius: 0.5rem;
+
+    /* Brand Colors */
+    --color-primary: #6d28d9;
+    --color-primary-50: #f5f3ff;
+    --color-primary-100: #ede9fe;
+    --color-primary-200: #ddd6fe;
+    --color-primary-300: #c4b5fd;
+    --color-primary-400: #a78bfa;
+    --color-primary-500: #8b5cf6;
+    --color-primary-600: #7c3aed;
+    --color-primary-700: #6d28d9;
+    --color-primary-800: #5b21b6;
+    --color-primary-900: #4c1d95;
+
+    --color-secondary: #50C878;
+    --color-secondary-50: #ecfdf5;
+    --color-secondary-100: #d1fae5;
+    --color-secondary-200: #a7f3d0;
+    --color-secondary-300: #6ee7b7;
+    --color-secondary-400: #34d399;
+    --color-secondary-500: #50C878;
+    --color-secondary-600: #3BA460;
+    --color-secondary-700: #047857;
+    --color-secondary-800: #065f46;
+    --color-secondary-900: #064e3b;
+
+    /* Accent/Magenta Colors (Special Use Only) */
+    --color-accent: #c026d3;
+    --color-accent-50: #fce7f3;
+    --color-accent-100: #fae8ff;
+    --color-accent-200: #f5d0fe;
+    --color-accent-300: #f0abfc;
+    --color-accent-400: #e879f9;
+    --color-accent-500: #d946ef;
+    --color-accent-600: #c026d3;
+    --color-accent-700: #a21caf;
+    --color-accent-800: #86198f;
+    --color-accent-900: #701a75;
+
+    /* Semantic Colors */
+    --color-success: #50C878;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #6d28d9;
+    --color-special: #c026d3;
+
+    /* Animation */
+    --duration-fast: 150ms;
+    --duration-base: 300ms;
+    --duration-slow: 500ms;
+    --duration-slower: 700ms;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+    /* Typography */
+    --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+
+    /* Sidebar Colors */
+    --sidebar: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 59% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 160 41% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 296 64% 51%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 233 70% 65%;
+
+    /* Sidebar Dark Mode */
+    --sidebar: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply bg-black h-full;
+  }
+
+  body {
+    @apply bg-black text-foreground font-sans antialiased h-full;
+  }
+
+  #root {
+    @apply h-full;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+}
+
+@layer components {
+  /* Focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  /* Transition utilities */
+  .transition-base {
+    @apply transition-all duration-[300ms] ease-in-out;
+  }
+
+  .transition-fast {
+    @apply transition-all duration-[150ms] ease-in-out;
+  }
+
+  .transition-slow {
+    @apply transition-all duration-[500ms] ease-in-out;
+  }
+}
+
+@layer utilities {
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Animation utilities */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-out {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in var(--duration-base) ease-in-out;
+  }
+
+  .animate-slide-in {
+    animation: slide-in var(--duration-base) ease-in-out;
+  }
+
+  .animate-slide-out {
+    animation: slide-out var(--duration-base) ease-in-out;
+  }
+}
