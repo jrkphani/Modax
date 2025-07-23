@@ -27,7 +27,7 @@ const StarBorder = <T extends React.ElementType = "button">({
       {...rest}
       style={{
         padding: `${String(thickness)}px 0`,
-        ...((rest as React.ComponentPropsWithoutRef<T>).style ?? {}),
+        ...(rest && typeof rest === 'object' && 'style' in rest && typeof rest.style === 'object' ? rest.style as React.CSSProperties : {}),
       }}
     >
       <div

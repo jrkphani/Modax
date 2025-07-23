@@ -467,12 +467,12 @@ export const getCSSVariables = () => {
   
   // Spacing
   Object.entries(designTokens.spacing).forEach(([key, value]) => {
-    cssVars[`--spacing-${key}`] = value;
+    cssVars[`--spacing-${key}`] = String(value);
   });
   
   // Border radius
   Object.entries(designTokens.borderRadius).forEach(([key, value]) => {
-    cssVars[`--radius-${key}`] = value;
+    cssVars[`--radius-${key}`] = String(value);
   });
   
   // Animation

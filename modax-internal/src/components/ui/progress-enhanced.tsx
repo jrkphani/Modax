@@ -48,9 +48,9 @@ export function ProgressEnhanced({
 
   return (
     <div className={cn('w-full', className)} {...props}>
-      {(label || showPercentage) && (
+      {((label != null && label !== '') || showPercentage === true) && (
         <div className="flex justify-between items-center mb-1">
-          {label && <span className="text-sm font-medium">{label}</span>}
+          {(label != null && label !== '') && <span className="text-sm font-medium">{label}</span>}
           {showPercentage && (
             <span className="text-sm font-medium text-muted-foreground">
               {Math.round(percentage)}%

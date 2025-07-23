@@ -1,11 +1,11 @@
 // Environment configuration
 
 export const getEnvVar = (key: string, defaultValue: string): string => {
-  const value = import.meta.env[key];
-  if (value === undefined || value === null || value === '') {
+  const envValue = import.meta.env[key] as string | undefined;
+  if (envValue === undefined || envValue === null || envValue === '') {
     return defaultValue;
   }
-  return String(value);
+  return String(envValue);
 };
 
 export const env = {

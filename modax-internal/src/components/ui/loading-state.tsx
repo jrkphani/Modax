@@ -72,7 +72,7 @@ export function LoadingState({
           <div className="h-2 w-2 animate-bounce rounded-full bg-primary [animation-delay:-0.15s]" />
           <div className="h-2 w-2 animate-bounce rounded-full bg-primary" />
         </div>
-        {text && (
+        {(text != null && text !== '') && (
           <p className="text-sm text-muted-foreground mt-2">{text}</p>
         )}
       </div>
@@ -86,7 +86,7 @@ export function LoadingState({
       {...props}
     >
       <Loader2 className={cn("animate-spin text-muted-foreground", spinnerSizeMap[size ?? "md"])} />
-      {text && (
+      {(text != null && text !== '') && (
         <p className="text-sm text-muted-foreground">{text}</p>
       )}
     </div>

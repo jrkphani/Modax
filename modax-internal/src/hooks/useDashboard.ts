@@ -19,15 +19,15 @@ interface CacheEntry<T> {
 // Simple in-memory cache
 const cache = new Map<string, CacheEntry<unknown>>();
 
-function setCache<T>(key: string, data: T): void {
+function setCache(key: string, data: unknown): void {
   cache.set(key, {
     data,
     timestamp: Date.now(),
   });
 }
 
-function getCache<T>(key: string, maxAge: number = DEFAULT_VALUES.CACHE_TIME): T | null {
-  const entry = cache.get(key) as CacheEntry<T> | undefined;
+function getCache(key: string, maxAge: number = DEFAULT_VALUES.CACHE_TIME): unknown | null {
+  const entry = cache.get(key) as CacheEntry<unknown> | undefined;
   
   if (!entry) return null;
   

@@ -301,7 +301,7 @@ export default function BattleCardsIndex() {
                           <div className="w-32 bg-gray-200 rounded-full h-2">
                             <div 
                               className="bg-success/50 h-2 rounded-full" 
-                              style={{ width: `${item.percentage}%` }}
+                              style={{ width: `${String(item.percentage)}%` }}
                             />
                           </div>
                           <span className="text-sm font-medium text-gray-900 w-10 text-right">
@@ -326,7 +326,7 @@ export default function BattleCardsIndex() {
                           <div className="w-32 bg-gray-200 rounded-full h-2">
                             <div 
                               className="bg-red-500 h-2 rounded-full" 
-                              style={{ width: `${item.percentage}%` }}
+                              style={{ width: `${String(item.percentage)}%` }}
                             />
                           </div>
                           <span className="text-sm font-medium text-gray-900 w-10 text-right">

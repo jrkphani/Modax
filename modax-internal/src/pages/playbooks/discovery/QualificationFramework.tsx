@@ -168,7 +168,7 @@ export default function QualificationFramework() {
   const handleScoreChange = (category, criteriaIndex, score) => {
     setScores(prev => ({
       ...prev,
-      [`${category}-${criteriaIndex}`]: score
+      [`${String(category)}-${String(criteriaIndex)}`]: score
     }));
   };
 
@@ -177,7 +177,7 @@ export default function QualificationFramework() {
     let answeredQuestions = 0;
     
     category.criteria.forEach((_, index) => {
-      const score = scores[`${category.category}-${index}`];
+      const score = scores[`${String(category.category)}-${String(index)}`];
       if (score) {
         totalScore += parseInt(score);
         answeredQuestions++;
@@ -304,15 +304,15 @@ export default function QualificationFramework() {
                     <div key={criterionIndex} className="space-y-3">
                       <Label className="text-base font-medium">{criterion.question}</Label>
                       <RadioGroup
-                        value={scores[`${category.category}-${criterionIndex}`] || ''}
+                        value={scores[`${String(category.category)}-${String(criterionIndex)}`] || ''}
                         onValueChange={(value) => { handleScoreChange(category.category, criterionIndex, value); }}
                       >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           {criterion.options.map((option, optionIndex) => (
                             <div key={optionIndex} className="flex items-center space-x-2">
-                              <RadioGroupItem value={option.score.toString()} id={`${category.category}-${criterionIndex}-${optionIndex}`} />
+                              <RadioGroupItem value={option.score.toString()} id={`${String(category.category)}-${String(criterionIndex)}-${String(optionIndex)}`} />
                               <Label 
-                                htmlFor={`${category.category}-${criterionIndex}-${optionIndex}`}
+                                htmlFor={`${String(category.category)}-${String(criterionIndex)}-${String(optionIndex)}`}
                                 className="flex-1 cursor-pointer p-3 rounded-lg border hover:bg-gray-50"
                               >
                                 <span className="flex items-center justify-between">

@@ -388,7 +388,7 @@ export default function ExpansionIndex() {
                           </div>
                         </div>
                       </div>
-                      <Badge variant="outline">{`Phase ${index + 1}`}</Badge>
+                      <Badge variant="outline">{`Phase ${String(index + 1)}`}</Badge>
                     </div>
                     <CardDescription className="mt-2">{phase.focus}</CardDescription>
                   </CardHeader>

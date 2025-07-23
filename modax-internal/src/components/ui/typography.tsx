@@ -41,7 +41,7 @@ export interface TypographyProps
 
 const Typography = React.forwardRef<HTMLElement, TypographyProps>(
   ({ className, variant, align, as, ...props }, ref) => {
-    const Comp = as || getDefaultElement(variant)
+    const Comp = as != null ? as : getDefaultElement(variant)
     
     return (
       <Comp

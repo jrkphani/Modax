@@ -30,13 +30,13 @@ export function useAuth() {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null)
 
-  const login = async (email: string, password: string) => {
+  const login = (email: string, password: string) => {
     // Mock authentication - replace with actual API call
     if (email && password) {
       setUser({
         id: '1',
         email,
-        name: email.split('@')[0] || 'User',
+        name: email.split('@')[0] ?? 'User',
       })
     } else {
       throw new Error('Invalid credentials')

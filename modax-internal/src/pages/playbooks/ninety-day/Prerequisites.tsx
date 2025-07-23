@@ -212,7 +212,7 @@ export default function Prerequisites() {
   const overallProgress = Math.round((completedItems / totalItems) * 100);
 
   const handleCheckItem = (categoryIndex: number, itemIndex: number) => {
-    const key = `${categoryIndex}-${itemIndex}`;
+    const key = `${String(categoryIndex)}-${String(itemIndex)}`;
     const newCheckedItems = new Set(checkedItems);
     if (newCheckedItems.has(key)) {
       newCheckedItems.delete(key);
@@ -354,7 +354,7 @@ export default function Prerequisites() {
                     >
                       <div className="flex items-start space-x-3">
                         <Checkbox
-                          checked={item.status === 'completed' || checkedItems.has(`${selectedCategory}-${index}`)}
+                          checked={item.status === 'completed' || checkedItems.has(`${String(selectedCategory)}-${String(index)}`)}
                           onCheckedChange={() => { handleCheckItem(selectedCategory, index); }}
                           disabled={item.status === 'completed'}
                         />

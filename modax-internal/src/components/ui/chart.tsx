@@ -125,22 +125,25 @@ function ChartTooltipContent({
   const { config } = useChart()
 
   const tooltipLabel = React.useMemo(() => {
-    if (hideLabel || !payload || payload.length === 0) {
+    if (hideLabel || payload == null || !Array.isArray(payload) || payload.length === 0) {
       return null
     }
 
     const [item] = payload
-    const key = `${labelKey ?? (item as Record<string, unknown>)?.dataKey ?? (item as Record<string, unknown>)?.name ?? "value"}`
+    if (item == null) return null
+    
+    const itemRecord = item as Record<string, unknown>
+    const key = String(labelKey ?? itemRecord.dataKey ?? itemRecord.name ?? "value")
     const itemConfig = getPayloadConfigFromPayload(config, item, key)
     const value =
       labelKey === undefined && typeof label === "string"
         ? config[label]?.label ?? label
         : itemConfig?.label
 
-    if (labelFormatter) {
+    if (labelFormatter != null && payload != null) {
       return (
         <div className={cn("font-medium", labelClassName)}>
-          {labelFormatter(value, payload)}
+          {labelFormatter(value, payload as any)}
         </div>
       )
     }
@@ -160,7 +163,7 @@ function ChartTooltipContent({
     labelKey,
   ])
 
-  if (!active || !payload || payload.length === 0) {
+  if (active !== true || payload == null || !Array.isArray(payload) || payload.length === 0) {
     return null
   }
 
@@ -176,22 +179,24 @@ function ChartTooltipContent({
       {!nestLabel ? tooltipLabel : null}
       <div className="grid gap-1.5">
         {payload.map((item, index) => {
+          if (item == null) return null
+          
           const itemRecord = item as Record<string, unknown>;
-          const key = `${nameKey ?? itemRecord.name ?? itemRecord.dataKey ?? "value"}`
+          const key = String(nameKey ?? itemRecord.name ?? itemRecord.dataKey ?? "value")
           const itemConfig = getPayloadConfigFromPayload(config, item, key)
           const payloadData = itemRecord.payload as Record<string, unknown> | undefined;
           const indicatorColor = color ?? payloadData?.fill ?? itemRecord.color
 
           return (
             <div
-              key={item.dataKey}
+              key={String(itemRecord.dataKey ?? index)}
               className={cn(
                 "[&>svg]:text-muted-foreground flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5",
                 indicator === "dot" && "items-center"
               )}
             >
               {formatter !== undefined && itemRecord.value !== undefined && itemRecord.name !== undefined ? (
-                formatter(itemRecord.value as string | number, itemRecord.name as string, item, index, itemRecord.payload)
+                formatter(itemRecord.value as any, itemRecord.name as string, item as any, index, itemRecord.payload as any)
               ) : (
                 <>
                   {itemConfig?.icon ? (
@@ -232,7 +237,7 @@ function ChartTooltipContent({
                     </div>
                     {itemRecord.value !== undefined && itemRecord.value !== null && (
                       <span className="text-foreground font-mono font-medium tabular-nums">
-                        {(itemRecord.value as number).toLocaleString()}
+                        {typeof itemRecord.value === 'number' ? itemRecord.value.toLocaleString() : String(itemRecord.value)}
                       </span>
                     )}
                   </div>
@@ -261,7 +266,7 @@ function ChartLegendContent({
   }) {
   const { config } = useChart()
 
-  if (!payload || payload.length === 0) {
+  if (payload == null || !Array.isArray(payload) || payload.length === 0) {
     return null
   }
 
@@ -274,13 +279,15 @@ function ChartLegendContent({
       )}
     >
       {payload.map((item) => {
+        if (item == null) return null
+        
         const itemRecord = item as Record<string, unknown>;
-        const key = `${nameKey ?? itemRecord.dataKey ?? "value"}`
+        const key = String(nameKey ?? itemRecord.dataKey ?? "value")
         const itemConfig = getPayloadConfigFromPayload(config, item, key)
 
         return (
           <div
-            key={itemRecord.value as string}
+            key={String(itemRecord.value ?? itemRecord.dataKey ?? 'unknown')}
             className={cn(
               "[&>svg]:text-muted-foreground flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3"
             )}
@@ -291,7 +298,7 @@ function ChartLegendContent({
               <div
                 className="h-2 w-2 shrink-0 rounded-[2px]"
                 style={{
-                  backgroundColor: itemRecord.color as string,
+                  backgroundColor: String(itemRecord.color ?? '#000000'),
                 }}
               />
             )}

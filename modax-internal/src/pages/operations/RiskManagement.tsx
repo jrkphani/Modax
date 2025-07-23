@@ -168,7 +168,7 @@ export default function RiskManagement() {
                               const level = getRiskLevel(score)
                               return (
                                 <div
-                                  key={`${lIndex}-${iIndex}`}
+                                  key={`${String(lIndex)}-${String(iIndex)}`}
                                   className={cn(
                                     "h-12 rounded flex items-center justify-center text-xs font-medium",
                                     level.color

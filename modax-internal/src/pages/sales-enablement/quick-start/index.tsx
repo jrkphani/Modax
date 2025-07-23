@@ -327,9 +327,9 @@ export default function QuickStartIndex() {
                       variant="outline" 
                       size="sm" 
                       className="mt-4"
-                      onClick={() => { copyToClipboard(pitch.response, `pitch-${idx}`); }}
+                      onClick={() => { copyToClipboard(pitch.response, `pitch-${String(idx)}`); }}
                     >
-                      {copiedText === `pitch-${idx}` ? (
+                      {copiedText === `pitch-${String(idx)}` ? (
                         <>
                           <CheckCircle className="mr-2 h-4 w-4" />
                           Copied!
@@ -388,9 +388,9 @@ export default function QuickStartIndex() {
                             variant="outline" 
                             size="sm" 
                             className="mt-3"
-                            onClick={() => { copyToClipboard(obj.response, `objection-${idx}`); }}
+                            onClick={() => { copyToClipboard(obj.response, `objection-${String(idx)}`); }}
                           >
-                            {copiedText === `objection-${idx}` ? (
+                            {copiedText === `objection-${String(idx)}` ? (
                               <>
                                 <CheckCircle className="mr-2 h-4 w-4" />
                                 Copied!

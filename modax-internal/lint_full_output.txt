@@ -30,18 +30,13 @@
   146:45  error  Unexpected any. Specify a different type                                                                                                                @typescript-eslint/no-explicit-any
   166:8   error  Unexpected nullable boolean value in conditional. Please handle the nullish case explicitly                                                             @typescript-eslint/strict-boolean-expressions
   166:19  error  Unexpected any value in conditional. An explicit comparison or type conversion is required                                                              @typescript-eslint/strict-boolean-expressions
-  166:38  error  Unsafe member access .length on an `error` typed value                                                                                                  @typescript-eslint/no-unsafe-member-access
-  170:29  error  Unsafe member access .length on an `error` typed value                                                                                                  @typescript-eslint/no-unsafe-member-access
-  181:10  error  Unsafe call of a(n) `error` type typed value                                                                                                            @typescript-eslint/no-unsafe-call
-  181:18  error  Unsafe member access .map on an `error` typed value                                                                                                     @typescript-eslint/no-unsafe-member-access
-  183:30  error  'nameKey ?? itemRecord.name ?? itemRecord.dataKey ?? "value"' will use Object's default stringification format ('[object Object]') when stringified     @typescript-eslint/no-base-to-string
-  190:20  error  Unsafe assignment of an `any` value                                                                                                                     @typescript-eslint/no-unsafe-assignment
-  190:25  error  Unsafe member access .dataKey on an `any` value                                                                                                         @typescript-eslint/no-unsafe-member-access
-  197:91  error  Unsafe argument of type `any` assigned to a parameter of type `Payload<ValueType, NameType>`                                                            @typescript-eslint/no-unsafe-argument
-  197:97  error  Unsafe argument of type `any` assigned to a parameter of type `number`                                                                                  @typescript-eslint/no-unsafe-argument
-  267:8   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                                                              @typescript-eslint/strict-boolean-expressions
-  279:8   error  Unsafe call of a(n) `error` type typed value                                                                                                            @typescript-eslint/no-unsafe-call
-  281:28  error  'nameKey ?? itemRecord.dataKey ?? "value"' will use Object's default stringification format ('[object Object]') when stringified                        @typescript-eslint/no-base-to-string
+  182:16  error  Unexpected any value in conditional. An explicit comparison or type conversion is required                                                              @typescript-eslint/strict-boolean-expressions
+  185:30  error  'nameKey ?? itemRecord.name ?? itemRecord.dataKey ?? "value"' will use Object's default stringification format ('[object Object]') when stringified     @typescript-eslint/no-base-to-string
+  192:27  error  'itemRecord.dataKey ?? index' will use Object's default stringification format ('[object Object]') when stringified                                     @typescript-eslint/no-base-to-string
+  199:91  error  Unsafe argument of type `any` assigned to a parameter of type `Payload<ValueType, NameType>`                                                            @typescript-eslint/no-unsafe-argument
+  269:8   error  Unexpected any value in conditional. An explicit comparison or type conversion is required                                                              @typescript-eslint/strict-boolean-expressions
+  281:8   error  Unsafe call of a(n) `error` type typed value                                                                                                            @typescript-eslint/no-unsafe-call
+  283:28  error  'nameKey ?? itemRecord.dataKey ?? "value"' will use Object's default stringification format ('[object Object]') when stringified                        @typescript-eslint/no-base-to-string
 
 /Users/jrkphani/Projects/ModAx/modax-internal/src/components/ui/data-table-toolbar.tsx
   33:10  error  Unexpected nullable string value in conditional. Please handle the nullish/empty cases explicitly  @typescript-eslint/strict-boolean-expressions
@@ -421,5 +416,5 @@ Retrieves the type of the 'ref' prop for a given component type or tag name  @ty
   0:0  error  Parsing error: "parserOptions.project" has been provided for @typescript-eslint/parser.
 The file was not found in any of the provided project(s): vitest.config.d.ts
 
-✖ 307 problems (296 errors, 11 warnings)
+✖ 302 problems (291 errors, 11 warnings)
 
