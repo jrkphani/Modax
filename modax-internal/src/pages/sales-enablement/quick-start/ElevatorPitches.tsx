@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { 
   PageLayout, 
   PageContainer, 
@@ -8,6 +8,7 @@ import {
 } from '@/components/layout/PageLayout'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { 
   Clock,
   Target,

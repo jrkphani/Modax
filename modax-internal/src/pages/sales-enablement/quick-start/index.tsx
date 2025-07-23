@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { PageContainer, PageHeader } from '@/components/layout/PageLayout'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -9,8 +9,7 @@ import {
   Target, 
   MessageSquare, 
   Clock, 
-  Users, 
-  ArrowRight,
+  Users,
   Copy,
   CheckCircle,
   AlertCircle,
@@ -171,7 +170,6 @@ export default function QuickStartIndex() {
       <PageHeader
         title="Sales Quick Start Guide"
         description="Master the ModAx Story in 15 Minutes"
-        badge="Essential Tools"
       />
 
       <div className="space-y-8">

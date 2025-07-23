@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { 
   PageLayout, 
   PageContainer, 
@@ -14,14 +14,10 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { 
   Shield,
   Search,
-  AlertCircle,
-  CheckCircle2,
-  TrendingUp,
   Clock,
   DollarSign,
   Users,
   Building,
-  Zap,
   Target,
   MessageSquare,
   Lightbulb

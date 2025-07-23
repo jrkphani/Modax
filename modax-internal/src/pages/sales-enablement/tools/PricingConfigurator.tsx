@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { 
   PageLayout, 
   PageContainer, 
@@ -235,7 +235,7 @@ export default function PricingConfigurator() {
                     <Label>Estimated Lines of Code: {config.linesOfCode.toLocaleString()}</Label>
                     <Slider
                       value={[config.linesOfCode]}
-                      onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, linesOfCode: value })); }}
+                      onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, linesOfCode: value ?? 10000 })); }}
                       min={10000}
                       max={1000000}
                       step={10000}
