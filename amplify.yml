@@ -3,10 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
-        - pwd
-        - ls -la
         - cd modax-internal
-        - npm ci
+        - npm ci --ignore-scripts
     build:
       commands:
         - npm run build
