@@ -41,7 +41,7 @@ export function Breadcrumb() {
       });
     } else {
       // Find parent item if it's a nested route
-      const pathSegments = currentPath.split('/').filter(Boolean);
+      const _pathSegments = currentPath.split('/').filter(Boolean);
       
       // Find parent navigation item
       for (const navItem of navigationItems) {
@@ -64,7 +64,7 @@ export function Breadcrumb() {
       }
 
       // If not found in nested items, just use the current item
-      if (items.length === 0 && currentNavItem) {
+      if (items.length === 0) {
         items.push({
           label: currentNavItem.label,
           path: currentNavItem.path,
@@ -100,9 +100,9 @@ export function Breadcrumb() {
         </BreadcrumbItem>
 
         {/* Show other breadcrumb items if not on strategy overview */}
-        {currentPath !== "/strategy-overview" && breadcrumbItems.map((item, index) => (
-          <React.Fragment key={item.path || index}>
-            <BreadcrumbSeparator>
+        {currentPath !== "/strategy-overview" && breadcrumbItems.length > 0 && breadcrumbItems.map((item, index) => (
+          <React.Fragment key={item.path ?? index}>
+            <BreadcrumbSeparator className="[&>svg]:size-3.5">
               <ChevronRight className="h-4 w-4" />
             </BreadcrumbSeparator>
             <BreadcrumbItem>
@@ -116,7 +116,7 @@ export function Breadcrumb() {
               ) : (
                 <BreadcrumbLink asChild>
                   <Link 
-                    to={item.path || '#'}
+                    to={item.path ?? '#'}
                     className="text-gray-500 hover:text-gray-700 transition-colors"
                   >
                     {item.label}

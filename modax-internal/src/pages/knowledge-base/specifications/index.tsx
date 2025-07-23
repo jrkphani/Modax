@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { env } from '@/config/env'
 import { 
   PageLayout, 
@@ -151,12 +151,12 @@ export default function TechnicalSpecifications() {
   ]
 
   const copyToClipboard = (text: string, endpoint: string) => {
-    navigator.clipboard.writeText(text)
+    void navigator.clipboard.writeText(text)
     setCopiedEndpoint(endpoint)
-    setTimeout(() => setCopiedEndpoint(null), 2000)
+    setTimeout(() => { setCopiedEndpoint(null); }, 2000)
   }
 
-  const filteredEndpoints = Object.entries(apiEndpoints).reduce((acc, [category, endpoints]) => {
+  const filteredEndpoints = Object.entries(apiEndpoints).reduce<Record<string, APIEndpoint[]>>((acc, [category, endpoints]) => {
     const filtered = endpoints.filter(endpoint =>
       endpoint.path.toLowerCase().includes(searchQuery.toLowerCase()) ||
       endpoint.description.toLowerCase().includes(searchQuery.toLowerCase())
@@ -165,7 +165,7 @@ export default function TechnicalSpecifications() {
       acc[category] = filtered
     }
     return acc
-  }, {} as Record<string, APIEndpoint[]>)
+  }, {})
 
   const filteredGuides = integrationGuides.filter(guide =>
     guide.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -190,7 +190,7 @@ export default function TechnicalSpecifications() {
                 type="text"
                 placeholder="Search APIs, endpoints, integrations..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => { setSearchQuery(e.target.value); }}
                 className="pl-12 pr-4 h-12 text-base"
               />
             </div>
@@ -244,7 +244,7 @@ export default function TechnicalSpecifications() {
                                   variant="ghost"
                                   size="icon"
                                   className="h-6 w-6"
-                                  onClick={() => copyToClipboard(endpoint.path, endpoint.path)}
+                                  onClick={() => { copyToClipboard(endpoint.path, endpoint.path); }}
                                 >
                                   {copiedEndpoint === endpoint.path ? (
                                     <Check className="h-3 w-3 text-success" />

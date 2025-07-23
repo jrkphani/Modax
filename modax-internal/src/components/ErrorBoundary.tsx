@@ -1,8 +1,8 @@
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Component, type ReactNode, type ErrorInfo } from 'react'
 import { Button } from './ui/button'
 import { Alert, AlertDescription, AlertTitle } from './ui/alert'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { AlertCircle, ChevronDown, RefreshCw, Home } from 'lucide-react'
 
 interface Props {
@@ -38,7 +38,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
   render() {
     if (this.state.hasError) {
-      if (this.props.fallback) {
+      if (this.props.fallback != null) {
         return this.props.fallback
       }
 
@@ -56,7 +56,7 @@ export class ErrorBoundary extends Component<Props, State> {
             </CardHeader>
             
             <CardContent className="space-y-4">
-              {this.state.error && (
+              {this.state.error !== null && (
                 <Alert variant="destructive">
                   <AlertCircle className="h-4 w-4" />
                   <AlertTitle>Error</AlertTitle>
@@ -66,10 +66,10 @@ export class ErrorBoundary extends Component<Props, State> {
                 </Alert>
               )}
 
-              {this.state.errorInfo && (
+              {this.state.errorInfo !== null && (
                 <Collapsible
                   open={this.state.isOpen}
-                  onOpenChange={(isOpen) => this.setState({ isOpen })}
+                  onOpenChange={(isOpen) => { this.setState({ isOpen }) }}
                 >
                   <CollapsibleTrigger asChild>
                     <Button

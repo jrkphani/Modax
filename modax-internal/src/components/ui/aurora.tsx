@@ -120,12 +120,11 @@ interface AuroraProps {
 
 export default function Aurora(props: AuroraProps) {
   const {
-    colorStops = [designTokens.colors.primary.DEFAULT, designTokens.colors.emerald.DEFAULT, designTokens.colors.secondary.DEFAULT],
+    colorStops = [designTokens.colors.primary.DEFAULT, designTokens.colors.secondary.DEFAULT, designTokens.colors.accent.DEFAULT],
     amplitude = 1.0,
     blend = 0.5,
-    speed = 1.0,
+    speed: _speed = 1.0,
     className,
-    children,
   } = props;
   const propsRef = useRef<AuroraProps>(props);
   propsRef.current = props;
@@ -147,14 +146,14 @@ export default function Aurora(props: AuroraProps) {
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = "transparent";
 
-    let program: Program | undefined;
+    let program: Program | undefined = undefined;
 
     function resize() {
       if (!ctn) return;
       const width = ctn.offsetWidth;
       const height = ctn.offsetHeight;
       renderer.setSize(width, height);
-      if (program) {
+      if (program !== undefined) {
         program.uniforms.uResolution.value = [width, height];
       }
     }
@@ -189,7 +188,7 @@ export default function Aurora(props: AuroraProps) {
     const update = (t: number) => {
       animateId = requestAnimationFrame(update);
       const { time = t * 0.01, speed = 1.0 } = propsRef.current;
-      if (program) {
+      if (program !== undefined) {
         program.uniforms.uTime.value = time * speed * 0.1;
         program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
         program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
@@ -208,7 +207,7 @@ export default function Aurora(props: AuroraProps) {
     return () => {
       cancelAnimationFrame(animateId);
       window.removeEventListener("resize", resize);
-      if (ctn && gl.canvas.parentNode === ctn) {
+      if (gl.canvas.parentNode === ctn) {
         ctn.removeChild(gl.canvas);
       }
       try {
@@ -220,9 +219,9 @@ export default function Aurora(props: AuroraProps) {
         console.error("Error losing WebGL context:", e);
       }
     };
-  }, [amplitude, colorStops.join(","), blend]);
+  }, [amplitude, colorStops, blend]);
 
   return (
-    <div ref={ctnDom} className={`w-full h-full ${className || ""}`} />
+    <div ref={ctnDom} className={`w-full h-full ${className ?? ""}`} />
   );
 }

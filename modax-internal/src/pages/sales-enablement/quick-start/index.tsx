@@ -1,9 +1,9 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
 import { PageContainer, PageHeader } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { 
   Zap, 
   Target, 
@@ -20,16 +20,15 @@ import {
   ChevronUp,
   Play
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 export default function QuickStartIndex() {
   const [copiedText, setCopiedText] = useState<string | null>(null)
   const [expandedObjection, setExpandedObjection] = useState<number | null>(null)
 
   const copyToClipboard = (text: string, id: string) => {
-    navigator.clipboard.writeText(text)
+    void navigator.clipboard.writeText(text)
     setCopiedText(id)
-    setTimeout(() => setCopiedText(null), 2000)
+    setTimeout(() => { setCopiedText(null); }, 2000)
   }
 
   const mainPitch = `We resurrect failed GenAI experiments and turn them into production systems in 90 days. While consultancies sell 18-month transformations and vendors sell more tools, we deliver working systems that evolve into enterprise intelligence platforms. AWS funds 80% of it.`
@@ -204,7 +203,7 @@ export default function QuickStartIndex() {
                 variant="outline" 
                 size="sm" 
                 className="mt-4"
-                onClick={() => copyToClipboard(mainPitch, 'main-pitch')}
+                onClick={() => { copyToClipboard(mainPitch, 'main-pitch'); }}
               >
                 {copiedText === 'main-pitch' ? (
                   <>
@@ -331,7 +330,7 @@ export default function QuickStartIndex() {
                       variant="outline" 
                       size="sm" 
                       className="mt-4"
-                      onClick={() => copyToClipboard(pitch.response, `pitch-${idx}`)}
+                      onClick={() => { copyToClipboard(pitch.response, `pitch-${idx}`); }}
                     >
                       {copiedText === `pitch-${idx}` ? (
                         <>
@@ -364,7 +363,7 @@ export default function QuickStartIndex() {
                   {objections.map((obj, idx) => (
                     <div key={idx} className="border rounded-lg">
                       <button
-                        onClick={() => setExpandedObjection(expandedObjection === idx ? null : idx)}
+                        onClick={() => { setExpandedObjection(expandedObjection === idx ? null : idx); }}
                         className="w-full p-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                       >
                         <div className="flex items-center gap-3">
@@ -392,7 +391,7 @@ export default function QuickStartIndex() {
                             variant="outline" 
                             size="sm" 
                             className="mt-3"
-                            onClick={() => copyToClipboard(obj.response, `objection-${idx}`)}
+                            onClick={() => { copyToClipboard(obj.response, `objection-${idx}`); }}
                           >
                             {copiedText === `objection-${idx}` ? (
                               <>

@@ -1,7 +1,7 @@
 import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import { type VariantProps, cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
-import { LucideIcon } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 import { Button } from "./button"
 
 const emptyStateVariants = cva(
@@ -56,7 +56,7 @@ export function EmptyState({
         </div>
       )}
       
-      {title && (
+      {title !== undefined && title !== "" && (
         <h3 className={cn(
           "font-semibold",
           Icon && "mt-4",
@@ -66,31 +66,31 @@ export function EmptyState({
         </h3>
       )}
       
-      {description && (
+      {description !== undefined && description !== "" && (
         <p className={cn(
           "text-muted-foreground",
-          title && "mt-1",
+          title !== undefined && title !== "" && "mt-1",
           size === "sm" ? "text-xs max-w-xs" : "text-sm max-w-md"
         )}>
           {description}
         </p>
       )}
       
-      {children && (
+      {children !== undefined && (
         <div className={cn(
-          (title || description) && "mt-4",
+          ((title !== undefined && title !== "") || (description !== undefined && description !== "")) && "mt-4",
           "w-full max-w-md"
         )}>
           {children}
         </div>
       )}
       
-      {action && (
+      {action !== undefined && (
         <Button
-          variant={action.variant || "default"}
+          variant={action.variant ?? "default"}
           size={size === "sm" ? "sm" : "default"}
           onClick={action.onClick}
-          className={cn((title || description || children) && "mt-4")}
+          className={cn(((title !== undefined && title !== "") || (description !== undefined && description !== "") || children !== undefined) && "mt-4")}
         >
           {action.label}
         </Button>

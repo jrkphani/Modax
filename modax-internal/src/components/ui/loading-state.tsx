@@ -1,5 +1,5 @@
 import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import { type VariantProps, cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Loader2 } from "lucide-react"
 import { Skeleton } from "./skeleton"
@@ -85,7 +85,7 @@ export function LoadingState({
       className={cn(loadingStateVariants({ size, variant, className }), "flex-col gap-3")}
       {...props}
     >
-      <Loader2 className={cn("animate-spin text-muted-foreground", spinnerSizeMap[size || "md"])} />
+      <Loader2 className={cn("animate-spin text-muted-foreground", spinnerSizeMap[size ?? "md"])} />
       {text && (
         <p className="text-sm text-muted-foreground">{text}</p>
       )}

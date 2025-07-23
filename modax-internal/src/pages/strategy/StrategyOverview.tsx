@@ -1,47 +1,37 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PageContainer } from '@/components/layout/PageLayout'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
-import { businessMetrics, getFormattedRevenue, getFormattedDealSize } from '@/config/business-metrics'
+import { businessMetrics, getFormattedDealSize } from '@/config/business-metrics'
+import { cn } from '@/lib/utils'
 import { 
   ArrowRight, 
   TrendingUp, 
-  Target, 
   Shield, 
-  DollarSign, 
   ChevronRight,
-  Sparkles,
   Zap,
   Building2,
-  BarChart3,
   Users,
-  Brain,
   Network,
   Rocket,
   Trophy,
   Clock,
   CheckCircle,
-  XCircle,
-  LineChart,
-  Globe,
   Star,
-  Compass,
   FileText,
   Briefcase
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 export default function StrategyOverview() {
   const navigate = useNavigate()
-  const [activeSection, setActiveSection] = useState<string | null>(null)
+  // const [activeSection, setActiveSection] = useState<string | null>(null)
   const [expandedInsight, setExpandedInsight] = useState<number | null>(null)
 
   const marketStats = [
-    { value: `${businessMetrics.marketReality.genAIPocFailureRate}%`, label: 'GenAI POCs That Die', color: 'text-red-500' },
-    { value: `$${businessMetrics.marketReality.wastedInvestment}B`, label: 'Wasted Investment', color: 'text-orange-500' },
+    { value: `${String(businessMetrics.marketReality.genAIPocFailureRate)}%`, label: 'GenAI POCs That Die', color: 'text-red-500' },
+    { value: `$${String(businessMetrics.marketReality.wastedInvestment)}B`, label: 'Wasted Investment', color: 'text-orange-500' },
     { value: businessMetrics.marketReality.typicalProjectTime, label: 'Months Typical Time', color: 'text-blue-500' }
   ]
 
@@ -49,19 +39,19 @@ export default function StrategyOverview() {
     {
       phase: 'Find & Fix',
       timeframe: 'Months 1-3',
-      items: ['Resurrect 1 POC', 'Production ready', '90-day delivery', `${getFormattedDealSize(businessMetrics.revenueProjections.dealSizes.entry)} investment`],
+      items: ['Resurrect 1 POC', 'Production ready', '90-day delivery', `${String(getFormattedDealSize(businessMetrics.revenueProjections.dealSizes.entry))} investment`],
       color: 'emerald'
     },
     {
       phase: 'Prove & Scale',
       timeframe: 'Months 4-9', 
-      items: ['Expand to dept', '3-5 use cases', 'Proven ROI', `${getFormattedDealSize(businessMetrics.revenueProjections.dealSizes.expansion)} scope`],
+      items: ['Expand to dept', '3-5 use cases', 'Proven ROI', `${String(getFormattedDealSize(businessMetrics.revenueProjections.dealSizes.expansion))} scope`],
       color: 'primary'
     },
     {
       phase: 'Transform & Lead',
       timeframe: 'Months 10+',
-      items: ['Enterprise platform', 'AI-native ops', 'Market leader', `${getFormattedDealSize(businessMetrics.revenueProjections.dealSizes.transformation)}+ value`],
+      items: ['Enterprise platform', 'AI-native ops', 'Market leader', `${String(getFormattedDealSize(businessMetrics.revenueProjections.dealSizes.transformation))}+ value`],
       color: 'secondary'
     }
   ]
@@ -118,7 +108,7 @@ export default function StrategyOverview() {
                 Strategic Overview
               </Badge>
               <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-primary to-secondary bg-clip-text text-transparent leading-tight">
-                The ${businessMetrics.marketSize.totalTAM}B Opportunity Hidden in Plain Sight
+                The ${String(businessMetrics.marketSize.totalTAM)}B Opportunity Hidden in Plain Sight
               </h1>
               <p className="text-xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
                 While consultancies sell transformation theater and startups peddle more tools, 
@@ -173,7 +163,7 @@ export default function StrategyOverview() {
                 <Card 
                   key={idx} 
                   className="cursor-pointer transition-all hover:shadow-lg"
-                  onClick={() => setExpandedInsight(expandedInsight === idx ? null : idx)}
+                  onClick={() => { setExpandedInsight(expandedInsight === idx ? null : idx); }}
                 >
                   <CardHeader>
                     <div className="flex items-center justify-between">
@@ -323,7 +313,7 @@ export default function StrategyOverview() {
             <div className="text-center mt-8">
               <Button 
                 size="lg"
-                onClick={() => navigate('/strategy/three-act-journey')}
+                onClick={() => { void navigate('/strategy/three-act-journey') }}
                 className="bg-primary hover:bg-primary/90"
               >
                 Explore the Full Methodology
@@ -346,20 +336,20 @@ export default function StrategyOverview() {
                     <div key={idx} className="">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="text-xl font-bold">{year.year}: {idx === 0 ? 'Foundation Building' : idx === 1 ? 'Scaling Success' : 'Market Leadership'}</h3>
-                        <div className="text-2xl font-bold text-primary">${year.total}M</div>
+                        <div className="text-2xl font-bold text-primary">${String(year.total)}M</div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
                         <div className="bg-emerald-50 p-4 rounded-lg">
                           <div className="font-medium mb-1">{year.entries} New entries @ {getFormattedDealSize(businessMetrics.revenueProjections.dealSizes.entry)}</div>
-                          <div className="text-emerald-600 font-bold">${year.entriesRevenue}M</div>
+                          <div className="text-emerald-600 font-bold">${String(year.entriesRevenue)}M</div>
                         </div>
                         <div className="bg-primary/5 p-4 rounded-lg">
                           <div className="font-medium mb-1">{year.expansions} Expansions @ {getFormattedDealSize(businessMetrics.revenueProjections.dealSizes.expansion)}</div>
-                          <div className="text-primary font-bold">${year.expansionsRevenue}M</div>
+                          <div className="text-primary font-bold">${String(year.expansionsRevenue)}M</div>
                         </div>
                         <div className="bg-secondary/5 p-4 rounded-lg">
                           <div className="font-medium mb-1">{year.transformations} Transformations @ {getFormattedDealSize(businessMetrics.revenueProjections.dealSizes.transformation)}</div>
-                          <div className="text-secondary font-bold">${year.transformationsRevenue}M</div>
+                          <div className="text-secondary font-bold">${String(year.transformationsRevenue)}M</div>
                         </div>
                         {idx === 2 && (
                           <div className="bg-orange-50 p-4 rounded-lg">
@@ -422,15 +412,15 @@ export default function StrategyOverview() {
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Failed POCs</span>
-                        <span className="font-bold">${marketOpportunity.asean.failed}M</span>
+                        <span className="font-bold">${String(marketOpportunity.asean.failed)}M</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Legacy Modernization</span>
-                        <span className="font-bold">${marketOpportunity.asean.legacy}M</span>
+                        <span className="font-bold">${String(marketOpportunity.asean.legacy)}M</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Process Transformation</span>
-                        <span className="font-bold">${marketOpportunity.asean.process}M</span>
+                        <span className="font-bold">${String(marketOpportunity.asean.process)}M</span>
                       </div>
                     </div>
                   </div>
@@ -439,26 +429,26 @@ export default function StrategyOverview() {
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Failed POCs</span>
-                        <span className="font-bold">${marketOpportunity.india.failed}M</span>
+                        <span className="font-bold">${String(marketOpportunity.india.failed)}M</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Legacy Modernization</span>
-                        <span className="font-bold">${marketOpportunity.india.legacy}M</span>
+                        <span className="font-bold">${String(marketOpportunity.india.legacy)}M</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Process Transformation</span>
-                        <span className="font-bold">${marketOpportunity.india.process}M</span>
+                        <span className="font-bold">${String(marketOpportunity.india.process)}M</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 
                 <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-8 text-center">
-                  <div className="text-5xl font-bold text-primary mb-4">${marketOpportunity.totalTam}B</div>
+                  <div className="text-5xl font-bold text-primary mb-4">${String(marketOpportunity.totalTam)}B</div>
                   <div className="text-xl text-gray-700 mb-4">Total TAM</div>
                   <div className="flex items-center justify-center space-x-8">
                     <div>
-                      <div className="text-2xl font-bold text-emerald-600">${marketOpportunity.targetShare}M</div>
+                      <div className="text-2xl font-bold text-emerald-600">${String(marketOpportunity.targetShare)}M</div>
                       <div className="text-sm text-gray-600">Our 3-Year Target</div>
                     </div>
                     <div>
@@ -471,7 +461,7 @@ export default function StrategyOverview() {
                 <div className="mt-8 text-center">
                   <Button 
                     size="lg"
-                    onClick={() => navigate('/strategy/market-opportunity')}
+                    onClick={() => { void navigate('/strategy/market-opportunity') }}
                     className="bg-primary hover:bg-primary/90"
                   >
                     View Detailed Market Analysis
@@ -563,7 +553,7 @@ export default function StrategyOverview() {
             <div className="flex flex-wrap gap-6 justify-center">
               <Button 
                 size="lg"
-                onClick={() => navigate('/playbooks')}
+                onClick={() => { void navigate('/playbooks') }}
                 className="bg-primary hover:bg-primary/90 text-lg px-8 py-4"
               >
                 View Playbooks
@@ -572,7 +562,7 @@ export default function StrategyOverview() {
               <Button 
                 size="lg"
                 variant="outline"
-                onClick={() => navigate('/sales-enablement')}
+                onClick={() => { void navigate('/sales-enablement') }}
                 className="text-lg px-8 py-4"
               >
                 Explore Tools

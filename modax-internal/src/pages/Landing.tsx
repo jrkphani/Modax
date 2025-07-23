@@ -1,19 +1,25 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Aurora from '@/components/ui/aurora'
 import StarBorder from '@/components/ui/star-border'
 import { useNavigate } from 'react-router-dom'
-import { ArrowRight, TrendingUp, Target, Shield, DollarSign, ChevronDown, ChevronUp } from 'lucide-react'
-import { cn } from '@/lib/utils'
 import { designTokens } from '@/config/design-tokens'
+import { 
+  ArrowRight,
+  Shield,
+  Target,
+  DollarSign,
+  ChevronUp,
+  ChevronDown
+} from 'lucide-react'
 
 export default function Landing() {
   const navigate = useNavigate()
   const [expandedAct, setExpandedAct] = useState<number | null>(null)
 
   const handleEnterPortal = () => {
-    navigate('/login')
+    void navigate('/login')
   }
 
   const toggleAct = (actNumber: number) => {
@@ -25,7 +31,7 @@ export default function Landing() {
       {/* Full viewport Aurora Background */}
       <div className="fixed inset-0 bg-black">
         <Aurora 
-          colorStops={[designTokens.colors.primary.DEFAULT, designTokens.colors.emerald.DEFAULT, designTokens.colors.secondary.DEFAULT]}
+          colorStops={[designTokens.colors.primary.DEFAULT, designTokens.colors.secondary.DEFAULT, designTokens.colors.accent.DEFAULT]}
           blend={0.4}
           amplitude={1.0}
           speed={0.5}
@@ -138,7 +144,7 @@ export default function Landing() {
                     <Button 
                       variant="ghost" 
                       className="w-full mt-6 text-gray-400 hover:text-white hover:bg-white/10"
-                      onClick={() => toggleAct(1)}
+                      onClick={() => { toggleAct(1); }}
                     >
                       Read More 
                       {expandedAct === 1 ? <ChevronUp className="ml-2 h-4 w-4" /> : <ChevronDown className="ml-2 h-4 w-4" />}
@@ -181,7 +187,7 @@ export default function Landing() {
                     <Button 
                       variant="ghost" 
                       className="w-full mt-6 text-gray-400 hover:text-white hover:bg-white/10"
-                      onClick={() => toggleAct(2)}
+                      onClick={() => { toggleAct(2); }}
                     >
                       Read More 
                       {expandedAct === 2 ? <ChevronUp className="ml-2 h-4 w-4" /> : <ChevronDown className="ml-2 h-4 w-4" />}
@@ -236,7 +242,7 @@ export default function Landing() {
                     <Button 
                       variant="ghost" 
                       className="w-full mt-6 text-gray-400 hover:text-white hover:bg-white/10"
-                      onClick={() => toggleAct(3)}
+                      onClick={() => { toggleAct(3); }}
                     >
                       Read More 
                       {expandedAct === 3 ? <ChevronUp className="ml-2 h-4 w-4" /> : <ChevronDown className="ml-2 h-4 w-4" />}
