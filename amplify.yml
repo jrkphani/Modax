@@ -3,11 +3,12 @@ frontend:
   phases:
     preBuild:
       commands:
+        - pwd
+        - ls -la
         - cd modax-internal
         - npm ci
     build:
       commands:
-        - cd modax-internal
         - npm run build
   artifacts:
     baseDirectory: modax-internal/dist
