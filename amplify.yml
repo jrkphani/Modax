@@ -1,19 +1,18 @@
 version: 1
-applications:
-  - frontend:
-      phases:
-        preBuild:
-          commands:
-            - cd modax-internal
-            - npm ci
-        build:
-          commands:
-            - npm run build
-      artifacts:
-        baseDirectory: modax-internal/dist
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - modax-internal/node_modules/**/*
-    appRoot: modax-internal
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd modax-internal
+        - npm ci
+    build:
+      commands:
+        - cd modax-internal
+        - npm run build
+  artifacts:
+    baseDirectory: modax-internal/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - modax-internal/node_modules/**/*
