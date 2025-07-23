@@ -253,7 +253,7 @@ export default function PricingConfigurator() {
                       <Label>Number of Integrations: {config.integrations}</Label>
                       <Slider
                         value={[config.integrations]}
-                        onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, integrations: value })); }}
+                        onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, integrations: value ?? 0 })); }}
                         min={0}
                         max={50}
                         step={1}
@@ -264,7 +264,7 @@ export default function PricingConfigurator() {
                       <Label>User Count: {config.userCount}</Label>
                       <Slider
                         value={[config.userCount]}
-                        onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, userCount: value })); }}
+                        onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, userCount: value ?? 10 })); }}
                         min={10}
                         max={10000}
                         step={10}
@@ -342,7 +342,7 @@ export default function PricingConfigurator() {
                     <Label>Timeline: {config.timeline} months</Label>
                     <Slider
                       value={[config.timeline]}
-                      onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, timeline: value })); }}
+                      onValueChange={([value]: number[]) => { setConfig(prev => ({ ...prev, timeline: value ?? 6 })); }}
                       min={3}
                       max={18}
                       step={1}

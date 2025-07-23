@@ -1,12 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { H1, H2, H3, P, Lead } from '@/components/ui/typography';
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 
 const EntryStrategies = () => {

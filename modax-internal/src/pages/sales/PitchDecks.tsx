@@ -4,7 +4,7 @@ import {
   PageHeader, 
   PageContent 
 } from '@/components/layout/PageLayout'
-import { H1, H2, P, Lead, Muted } from '@/components/ui/typography'
+import { H2, P, Muted } from '@/components/ui/typography'
 import { Button } from '@/components/ui/button'
 import { Download, FileText, ExternalLink } from 'lucide-react'
 
